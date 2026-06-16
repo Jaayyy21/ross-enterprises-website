@@ -1,26 +1,95 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #FDF6E8; /* Primary Cream */
+  --foreground: #1F1A17; /* Text */
+  --primary: #5A3A22;    /* Walnut Brown */
+  --primary-dark: #38240D; /* Dark Chocolate */
+  --accent: #B87932;     /* Muted Bronze */
+  --beige: #E9DDC8;      /* Warm Beige */
+  --taupe: #C9B59A;      /* Soft Taupe */
+  --sand: #DCC9AB;       /* Sand */
+  --muted: #6B5E55;
+  --border: #DCC9AB;
+  --surface: #FDF6E8;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-primary: var(--primary);
+  --color-primary-dark: var(--primary-dark);
+  --color-accent: var(--accent);
+  --color-beige: var(--beige);
+  --color-taupe: var(--taupe);
+  --color-sand: var(--sand);
+  --color-muted: var(--muted);
+  --color-border: var(--border);
+  --color-surface: var(--surface);
+  --font-sans: var(--font-inter);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-inter), system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection {
+  background-color: var(--primary);
+  color: var(--background);
+}
+
+/* Custom Utilities */
+.bg-chocolate {
+  background-color: var(--primary-dark);
+}
+
+.text-cream {
+  color: var(--background);
+}
+
+.border-warm {
+  border-color: var(--taupe);
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Texture overlay */
+.bg-texture {
+  position: relative;
+}
+
+.bg-texture::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("https://www.transparenttextures.com/patterns/carbon-fibre.png");
+  opacity: 0.02;
+  pointer-events: none;
+}
+
+.bg-grain {
+  position: relative;
+}
+
+.bg-grain::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("https://www.transparenttextures.com/patterns/natural-paper.png");
+  opacity: 0.04;
+  pointer-events: none;
 }
