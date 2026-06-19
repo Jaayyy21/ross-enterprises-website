@@ -85,7 +85,7 @@ export function ProductCategories() {
             {loopData.map((category, i) => (
               <motion.div
                 key={`${category.id}-${i}`}
-                className="w-[380px] flex-shrink-0"
+                className="w-[300px] sm:w-[380px] flex-shrink-0"
                 whileHover={{ y: -12 }}
                 transition={{ duration: 0.5, ease: [0.33, 1, 0.68, 1] }}
               >

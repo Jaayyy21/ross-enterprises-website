@@ -8,7 +8,7 @@ export const company = {
   subheadline:
     "Trusted supplier of pneumatic, hydraulic, instrumentation and automation products serving industries across Gujarat and India.",
   intro:
-    "We would like to introduce ourselves as one of the foremost representative of companies like PARKER, LEGRIS, TRANSAIR, RECTUS, NITTO, ORIGA, PIAB, PNEUMAX, LUTHRA, CMATIC, BAUMER, AIRMATIC etc. which are into manufacturing of Pneumatics, Hydraulics, Instrumentation, Filter, Seals, Hoses & other products.",
+    "We would like to introduce ourselves as one of the foremost representative of companies like PARKER, LEGRIS, TRANSAIR, RECTUS, NITTO, ORIGA, PIAB, PNEUMAX, LUTHRA, CMATIC, BAUMER, UFLOW etc. which are into manufacturing of Pneumatics, Hydraulics, Instrumentation, Filter, Seals, Hoses & other products.",
   representation:
     "We are representing these companies for the past 20 years.",
   expertise:
@@ -57,7 +57,7 @@ export const brands: Brand[] = [
     description:
       "Global leader in motion and control technologies — automation, instrumentation, hydraulics, filtration, fluid connectors, and seals.",
     href: "/brands/parker",
-    logo: "https://images.unsplash.com/photo-1513828583688-c52646db42da?auto=format&fit=crop&q=80&w=1080",
+    logo: "https://upload.wikimedia.org/wikipedia/commons/e/e7/Parker_Hannifin.svg",
     website: "https://www.parker.com",
   },
   {
@@ -67,7 +67,7 @@ export const brands: Brand[] = [
     description:
       "Push-in fittings, function fittings, technical tubing, industrial blowguns, valves, air service units, and adaptors for compressed air and industrial fluids.",
     href: "/brands/legris",
-    logo: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&q=80&w=1080",
+    logo: "https://www.parker.com/content/dam/Parker-com/Static-Assets/Images/Logos/Parker-Legris-Logo.png",
     website: "https://www.parker.com/legris",
   },
   {
@@ -77,7 +77,7 @@ export const brands: Brand[] = [
     description:
       "Division of Parker Legris specializing in compressed air pipe work systems. Compatible with air, nitrogen, vacuum and argon.",
     href: "/brands/transair",
-    logo: "https://images.unsplash.com/photo-1532187643603-eb11029ba359?auto=format&fit=crop&q=80&w=1080",
+    logo: "https://www.parker.com/content/dam/Parker-com/Static-Assets/Images/Logos/Parker-Transair-Logo.png",
     website: "https://www.parker.com/transair",
   },
   {
@@ -87,7 +87,7 @@ export const brands: Brand[] = [
     description:
       "Parker Quick Coupling Division Europe — complete quick connect coupling systems for low, medium and high pressure applications.",
     href: "/brands/rectus",
-    logo: "https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?auto=format&fit=crop&q=80&w=1080",
+    logo: "https://www.parker.com/content/dam/Parker-com/Static-Assets/Images/Logos/Parker-Rectus-Logo.png",
     website: "https://www.parker.com/rectus",
   },
   {
@@ -97,7 +97,7 @@ export const brands: Brand[] = [
     description:
       "The widest variety of quick connects for manufacturing fluids — air, water, hydraulic and test media — of the highest quality.",
     href: "/brands/nitto",
-    logo: "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&q=80&w=1080",
+    logo: "https://www.nitto-kohki.co.jp/common/img/logo.png",
     website: "https://www.nitto-kohki.co.jp",
   },
   {
@@ -107,7 +107,7 @@ export const brands: Brand[] = [
     description:
       "Pneumatic and rodless cylinders with proven reliability, maintenance-free operation, and resistance to corrosion — from foundry to clean room.",
     href: "/brands/origa",
-    logo: "https://images.unsplash.com/photo-1621905252507-b35492cc74b4?auto=format&fit=crop&q=80&w=1080",
+    logo: "https://www.parker.com/content/dam/Parker-com/Static-Assets/Images/Logos/Parker-Hannifin-Logo.png",
     website: "https://www.parker.com",
   },
   {
@@ -117,7 +117,7 @@ export const brands: Brand[] = [
     description:
       "Established in 1951, Piab designs innovative vacuum solutions for automated material handling and factory automation processes.",
     href: "/brands/piab",
-    logo: "https://images.unsplash.com/photo-1581092160562-40aa08e78837?auto=format&fit=crop&q=80&w=1080",
+    logo: "https://logos-download.com/wp-content/uploads/2020/08/Piab_Logo.svg",
     website: "https://www.piab.com",
   },
   {
@@ -127,7 +127,7 @@ export const brands: Brand[] = [
     description:
       "European manufacturer of pneumatic cylinders, valves, air service units, and manipulation components for industrial automation.",
     href: "/brands/pneumax",
-    logo: "https://images.unsplash.com/photo-1581092335397-9583eb92d232?auto=format&fit=crop&q=80&w=1080",
+    logo: "https://www.pneumaxspa.com/wp-content/uploads/2019/05/logo-pneumax.png",
     website: "https://www.pneumaxspa.com",
   },
   {
@@ -137,7 +137,7 @@ export const brands: Brand[] = [
     description:
       "Leading manufacturer of pneumatic and hydraulic components, advance piping solutions, food grade fittings, and LLDPE tubes.",
     href: "/brands/luthra",
-    logo: "https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&q=80&w=1080",
+    logo: "https://www.luthrapneumsys.com/wp-content/uploads/2021/06/logo.png",
     website: "http://www.luthragroup.co.in",
   },
   {
@@ -147,7 +147,7 @@ export const brands: Brand[] = [
     description:
       "Specialized in push-in fittings and pneumatic fluid systems, providing high-quality solutions for industrial automation since 1979.",
     href: "/brands/cmatic",
-    logo: "https://images.unsplash.com/photo-1533090161767-e6ffed986c88?auto=format&fit=crop&q=80&w=1080",
+    logo: "https://www.cmatic.com/wp-content/uploads/2020/06/logo-cmatic.png",
     website: "https://www.cmatic.it",
   },
   {
@@ -157,18 +157,18 @@ export const brands: Brand[] = [
     description:
       "Baumer is a global leader in sensor technology and automation solutions, providing precision products for diverse industrial applications.",
     href: "/brands/baumer",
-    logo: "https://images.unsplash.com/photo-1581092580497-e0d23cbdf1dc?auto=format&fit=crop&q=80&w=1080",
+    logo: "https://upload.wikimedia.org/wikipedia/commons/a/a4/Baumer_Logo.svg",
     website: "https://www.baumer.com",
   },
   {
-    id: "airmatic",
-    name: "Airmatic",
-    tagline: "Pneumatic Control Components & Automation Systems",
+    id: "uflow",
+    name: "UFLOW",
+    tagline: "Industrial Valves & Automation Solutions",
     description:
-      "Airmatic provides comprehensive pneumatic control components and automation systems for industrial efficiency.",
-    href: "/brands/airmatic",
-    logo: "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&q=80&w=1080",
-    website: "https://www.airmatic.com",
+      "UFLOW Automation is a leading manufacturer of industrial solenoid valves, pneumatic valves, and automation products for diverse industrial applications.",
+    href: "/brands/uflow",
+    logo: "https://www.uflowautomation.com/assets/img/logo.png",
+    website: "https://www.uflowautomation.com",
   },
 ];
 
@@ -245,6 +245,13 @@ export const brandProductLines: Record<string, string[]> = {
     "Function fittings and valves",
     "Tubes and accessories for fluid control",
   ],
+  uflow: [
+    "Solenoid Valves — Pilot Operated, Direct Acting",
+    "Pneumatic Valves — Directional Control, Namur",
+    "Angle Seat Valves — Y-Type Pneumatically Controlled",
+    "Rotary Pneumatic Actuators",
+    "Air Cylinders & Air Preparation Units",
+  ],
 };
 
 export const productCategories = [
@@ -291,6 +298,20 @@ export const productCategories = [
     ],
   },
   {
+    id: "filtration",
+    name: "Filtration",
+    description:
+      "Compressed air filters, coalescing filters, hydraulic filters, lubrication filters, and condition monitoring solutions.",
+    image: "https://images.unsplash.com/photo-1581092580497-e0d23cbdf1dc?auto=format&fit=crop&q=80&w=1080",
+    products: [
+      "Air & Gas Filters",
+      "Coalescing Filters",
+      "Hydraulic Filters",
+      "Filter Regulators",
+      "Condition Monitoring",
+    ],
+  },
+  {
     id: "vacuum",
     name: "Vacuum Automation",
     description:
@@ -305,64 +326,8 @@ export const productCategories = [
     ],
   },
   {
-    id: "hoses",
-    name: "Hoses & Tubing",
-    description:
-      "PU, PA, PE, FEP, PFA tubing, braided hoses, hydraulic hoses, and industrial hose assemblies for diverse media.",
-    image: "https://images.unsplash.com/photo-1621905252507-b35492cc74b4?auto=format&fit=crop&q=80&w=1080",
-    products: [
-      "PU & PA Tubing",
-      "Hydraulic Hoses",
-      "Braided PVC Hose",
-      "PTFE & PFA Tubing",
-      "Recoil & Twin Tubing",
-    ],
-  },
-  {
-    id: "fittings",
-    name: "Fittings & Connectors",
-    description:
-      "Brass, stainless steel, and nickel-plated adaptors, quick disconnects, and pipe systems for compressed air and fluids.",
-    image: "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&q=80&w=1080",
-    products: [
-      "Push-in Fittings",
-      "Tube Fittings",
-      "Quick Disconnects",
-      "Transair Pipe Systems",
-      "Brass Adaptors",
-    ],
-  },
-  {
-    id: "valves",
-    name: "Valves",
-    description:
-      "Ball valves, needle valves, solenoid valves, butterfly valves, and manual valves from M5 to 4\" BSP for industrial control.",
-    image: "https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?auto=format&fit=crop&q=80&w=1080",
-    products: [
-      "Ball Valves",
-      "Solenoid Valves",
-      "Needle Valves",
-      "Butterfly Valves",
-      "Safety & Lockable Valves",
-    ],
-  },
-  {
-    id: "filters",
-    name: "Filters & Filtration",
-    description:
-      "Compressed air filters, coalescing filters, hydraulic filters, lubrication filters, and condition monitoring solutions.",
-    image: "https://images.unsplash.com/photo-1581092580497-e0d23cbdf1dc?auto=format&fit=crop&q=80&w=1080",
-    products: [
-      "Air & Gas Filters",
-      "Coalescing Filters",
-      "Hydraulic Filters",
-      "Filter Regulators",
-      "Condition Monitoring",
-    ],
-  },
-  {
     id: "seals",
-    name: "Seals & O-Rings",
+    name: "O-Rings & Seals",
     description:
       "Dynamic seals, elastomeric O-rings, extruded seals, high temperature metal seals, and EMI shielding solutions.",
     image: "https://images.unsplash.com/photo-1533090161767-e6ffed986c88?auto=format&fit=crop&q=80&w=1080",
@@ -516,7 +481,7 @@ export const featuredProducts = [
 export const stats = [
   { label: "Years in Business", value: "30+" },
   { label: "Global Brands", value: "12+" },
-  { label: "Product Categories", value: "9" },
+  { label: "Product Categories", value: "6" },
   { label: "Industries Served", value: "8" },
 ];
 
@@ -540,33 +505,163 @@ export interface Customer {
 
 export const customers: Customer[] = [
   {
-    id: "pharmaceutical-leader",
-    name: "Leading Pharma Corp",
-    logo: "https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&q=80&w=1080",
+    id: "siemens",
+    name: "Siemens",
+    logo: "https://logodownload.org/wp-content/uploads/2014/04/siemens-logo-1.png",
+    industry: "Industrial Automation",
+    description: "Global technology powerhouse focusing on industry, infrastructure, transport, and healthcare.",
+    products: ["Pneumatic Systems", "Instrumentation", "Valves"],
+    solutions: ["Factory Automation", "Process Control"],
+    relationship: "Long-term partner for automation components."
+  },
+  {
+    id: "abb",
+    name: "ABB",
+    logo: "https://logodownload.org/wp-content/uploads/2019/08/abb-logo-1.png",
+    industry: "Electrical Equipment",
+    description: "Leading global technology company that energizes the transformation of society and industry.",
+    products: ["Hydraulic Systems", "Sensors", "Connectors"],
+    solutions: ["Power Grid Solutions", "Industrial Robotics"],
+    relationship: "Preferred supplier for fluid power solutions."
+  },
+  {
+    id: "elecon",
+    name: "Elecon",
+    logo: "https://static.cdnlogo.com/logos/e/10/elecon-engineering.png",
+    industry: "Engineering",
+    description: "One of the largest manufacturers of material handling equipment and industrial gears in Asia.",
+    products: ["Pneumatic Cylinders", "FRL Units"],
+    solutions: ["Material Handling Automation"],
+    relationship: "Supplying heavy-duty industrial components."
+  },
+  {
+    id: "ge",
+    name: "GE (General Electric)",
+    logo: "https://www.freepnglogos.com/uploads/general-electric-logo-png/general-electric-logo-ge-png-1.png",
+    industry: "Conglomerate",
+    description: "Multinational conglomerate operating in sectors including aviation, power, and renewable energy.",
+    products: ["Instrumentation", "Filtration Solutions"],
+    solutions: ["Power Generation Systems", "Aviation Components"],
+    relationship: "Strategic partner for specialized fluid control."
+  },
+  {
+    id: "ceat",
+    name: "CEAT",
+    logo: "https://static.cdnlogo.com/logos/c/25/ceat.png",
+    industry: "Tyre Manufacturing",
+    description: "One of India's leading tyre manufacturers with a global presence.",
+    products: ["Pneumatic Valves", "Hoses", "Fittings"],
+    solutions: ["Tyre Curing Automation", "Production Line Maintenance"],
+    relationship: "Trusted vendor for pneumatic maintenance."
+  },
+  {
+    id: "apollo",
+    name: "Apollo",
+    logo: "https://corporate.apollotyres.com/media/1001/apollo-tyres-logo.png",
+    industry: "Tyre Manufacturing",
+    description: "Global tyre manufacturer with state-of-the-art manufacturing facilities.",
+    products: ["Vacuum Systems", "Pneumatic Actuators"],
+    solutions: ["Automated Material Handling"],
+    relationship: "Key supplier for vacuum automation."
+  },
+  {
+    id: "banco",
+    name: "Banco",
+    logo: "https://bancoindia.com/wp-content/uploads/2021/05/logo.png",
+    industry: "Automotive Components",
+    description: "Leader in engine cooling and sealing systems for automotive and industrial applications.",
+    products: ["Seals & O-Rings", "Hydraulic Fittings"],
+    solutions: ["Engine Cooling Systems"],
+    relationship: "Supplying precision sealing solutions."
+  },
+  {
+    id: "zydus",
+    name: "Zydus",
+    logo: "https://companieslogo.com/img/orig/ZYDUSLIFE.NS-6e8e8e8e.png",
     industry: "Pharmaceuticals",
-    description: "A major player in the global pharmaceutical industry specializing in life-saving medications.",
-    products: ["Push-in Fittings", "Teflon Tubing", "Pneumatic Valves"],
-    solutions: ["Cleanroom Fluid Control", "Automated Packaging Lines"],
-    relationship: "Supplying precision components for over 10 years."
+    description: "Global lifesciences company dedicated to healthcare.",
+    products: ["Cleanroom Fittings", "Stainless Steel Valves"],
+    solutions: ["Hygienic Fluid Handling"],
+    relationship: "Partner for pharmaceutical grade components."
   },
   {
-    id: "automotive-giant",
-    name: "Apex Motors",
-    logo: "https://images.unsplash.com/photo-1621905252507-b35492cc74b4?auto=format&fit=crop&q=80&w=1080",
+    id: "raychem-rpg",
+    name: "Raychem RPG",
+    logo: "https://www.rpggroup.com/assets/images/logo/raychem-rpg.png",
+    industry: "Energy & Infrastructure",
+    description: "Leading player in the energy and infrastructure sector.",
+    products: ["Instrumentation", "Connectors"],
+    solutions: ["Energy Distribution Systems"],
+    relationship: "Technical partner for infrastructure projects."
+  },
+  {
+    id: "everest-spices",
+    name: "Everest Spices",
+    logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Logo_of_Everest_spices.png/800px-Logo_of_Everest_spices.png",
+    industry: "Food & Beverage",
+    description: "India's largest selling spice brand.",
+    products: ["Pneumatic Conveying Systems", "Food-Grade Tubing"],
+    solutions: ["Automated Spice Processing"],
+    relationship: "Vendor for food-safe automation."
+  },
+  {
+    id: "real-namkeen",
+    name: "Real Namkeen",
+    logo: "https://realbites.com/wp-content/uploads/2023/05/Real-Bites-Logo.png",
+    industry: "Food & Beverage",
+    description: "Popular Indian snack manufacturer.",
+    products: ["Vacuum Grippers", "Pneumatic Valves"],
+    solutions: ["Snack Packaging Automation"],
+    relationship: "Supporting high-speed packaging lines."
+  },
+  {
+    id: "mg-motor",
+    name: "MG Motor",
+    logo: "https://logos-download.com/wp-content/uploads/2016/02/MG_Motor_logo.png",
     industry: "Automotive",
-    description: "Tier-1 automotive manufacturer producing high-performance commercial vehicles.",
-    products: ["High-Pressure Hoses", "Quick Connect Couplers", "Hydraulic Cylinders"],
-    solutions: ["Chassis Assembly Automation", "Leak Testing Systems"],
-    relationship: "Primary vendor for fluid connector solutions."
+    description: "Global automotive brand known for its innovation and heritage.",
+    products: ["Hydraulic Power Packs", "Quick Couplings"],
+    solutions: ["Vehicle Assembly Automation"],
+    relationship: "Automotive assembly line partner."
   },
   {
-    id: "chemical-processor",
-    name: "Indus Chemicals",
-    logo: "https://images.unsplash.com/photo-1532187643603-eb11029ba359?auto=format&fit=crop&q=80&w=1080",
-    industry: "Chemical Processing",
-    description: "Specialty chemical manufacturer with large-scale production facilities in GIDC Vadodara.",
-    products: ["Instrumentation Valves", "Stainless Steel Fittings", "Pressure Gauges"],
-    solutions: ["Corrosive Media Handling", "Process Monitoring Systems"],
-    relationship: "Technical partner for instrumentation and safety valves."
+    id: "schneider-electric",
+    name: "Schneider Electric",
+    logo: "https://companieslogo.com/img/orig/SU.PA-6e8e8e8e.png",
+    industry: "Energy Management",
+    description: "Global leader in energy management and automation.",
+    products: ["Sensors", "Automation Components"],
+    solutions: ["Digital Transformation of Energy"],
+    relationship: "Authorized partner for automation products."
+  },
+  {
+    id: "rotex",
+    name: "Rotex",
+    logo: "https://rotexautomation.com/wp-content/uploads/2021/06/Rotex-Logo.png",
+    industry: "Automation",
+    description: "Leading manufacturer of solenoid valves and actuators.",
+    products: ["Solenoid Valves", "Positioners"],
+    solutions: ["Process Automation Solutions"],
+    relationship: "Collaborative partner for valve solutions."
+  },
+  {
+    id: "amul-dairy",
+    name: "Amul Dairy",
+    logo: "https://amul.com/files/logos/amul-logo.png",
+    industry: "Dairy",
+    description: "World's largest milk producer.",
+    products: ["Stainless Steel Fittings", "Pneumatic Valves"],
+    solutions: ["Dairy Processing Automation"],
+    relationship: "Supplying hygienic fluid control systems."
+  },
+  {
+    id: "birla-century",
+    name: "Birla Century",
+    logo: "https://www.adityabirla.com/assets/images/logo.png",
+    industry: "Textiles",
+    description: "Leading textile manufacturer part of Aditya Birla Group.",
+    products: ["Pneumatic Cylinders", "Lubricators"],
+    solutions: ["Textile Machinery Automation"],
+    relationship: "Long-standing vendor for textile mills."
   }
 ];

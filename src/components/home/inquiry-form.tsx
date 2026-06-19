@@ -23,7 +23,7 @@ export function InquiryForm() {
       <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-taupe/10 rounded-full blur-[120px] pointer-events-none" />
 
       <div className="mx-auto max-w-[1600px] px-4 sm:px-6 lg:px-12 relative">
-        <div className="grid gap-24 lg:grid-cols-2 lg:items-start">
+        <div className="grid gap-16 lg:grid-cols-2 lg:items-start">
           <div>
             <SectionHeader
               title="Global Industrial Support"
@@ -34,7 +34,7 @@ export function InquiryForm() {
             />
             
             <div className="space-y-12 mt-16">
-              <div className="flex gap-8 group">
+              <div className="flex flex-col sm:flex-row gap-6 sm:gap-8 group">
                 <div className="flex h-14 w-14 items-center justify-center rounded-sm bg-accent/10 border border-accent/20 shrink-0 group-hover:bg-accent/20 transition-colors duration-500">
                   <ShieldCheck className="h-7 w-7 text-accent" />
                 </div>
@@ -44,7 +44,7 @@ export function InquiryForm() {
                 </div>
               </div>
               
-              <div className="flex gap-8 group">
+              <div className="flex flex-col sm:flex-row gap-6 sm:gap-8 group">
                 <div className="flex h-14 w-14 items-center justify-center rounded-sm bg-accent/10 border border-accent/20 shrink-0 group-hover:bg-accent/20 transition-colors duration-500">
                   <Headphones className="h-7 w-7 text-accent" />
                 </div>
@@ -55,7 +55,7 @@ export function InquiryForm() {
               </div>
             </div>
             
-            <div className="mt-20 p-10 bg-background/5 rounded-sm border border-white/5 backdrop-blur-sm relative overflow-hidden">
+            <div className="mt-20 p-6 sm:p-10 bg-background/5 rounded-sm border border-white/5 backdrop-blur-sm relative overflow-hidden">
               <div className="absolute top-0 left-0 w-1 bg-accent h-1/2" />
               <p className="text-background/80 font-medium italic text-[15px] leading-relaxed relative z-10">
                 "We see to it that individual attention is given to our customers regarding specific needs and material of construction. Our heritage is built on technical integrity."
@@ -69,7 +69,7 @@ export function InquiryForm() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
-            className="bg-background p-12 lg:p-16 rounded-sm shadow-[0_50px_100px_rgba(0,0,0,0.4)] relative overflow-hidden border border-taupe/10"
+            className="bg-background p-6 sm:p-12 lg:p-16 rounded-sm shadow-[0_50px_100px_rgba(0,0,0,0.4)] relative overflow-hidden border border-taupe/10"
           >
             <div className="absolute top-0 right-0 w-32 h-32 border-r border-t border-accent/20 translate-x-16 -translate-y-16" />
             

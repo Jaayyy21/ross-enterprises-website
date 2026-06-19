@@ -7,7 +7,7 @@ import { brands } from "@/lib/company-data";
 export const metadata: Metadata = {
   title: "Brands We Represent",
   description:
-    "Authorized representative of Parker, Legris, Transair, Rectus, Nitto, Origa, Piab, Pneumax, Luthra, CMATIC, Baumer, and Airmatic.",
+    "Authorized representative of Parker, Legris, Transair, Rectus, Nitto, Origa, Piab, Pneumax, Luthra, CMATIC, Baumer, and UFLOW.",
 };
 
 export default function BrandsPage() {

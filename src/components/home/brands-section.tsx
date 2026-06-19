@@ -25,7 +25,7 @@ export function BrandsSection() {
           <h2 className="text-4xl font-bold text-primary-dark tracking-tight">Authorized Technical Representation</h2>
         </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-x-12 gap-y-20">
+        <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-x-8 sm:gap-x-12 gap-y-12 sm:gap-y-20">
           {brands.map((brand, i) => (
             <motion.div
               key={brand.id}

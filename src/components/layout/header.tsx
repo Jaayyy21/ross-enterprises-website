@@ -35,7 +35,7 @@ export function Header() {
         ? "bg-background/95 backdrop-blur-md py-3 shadow-sm border-b border-taupe/20" 
         : "bg-background py-5 border-b border-taupe/10"
     )}>
-      <div className="mx-auto flex max-w-[1600px] items-center justify-between px-4 sm:px-6 lg:px-12">
+      <div className="mx-auto flex max-w-[1600px] items-center justify-between px-4 sm:px-6 lg:px-12 relative">
         <Link href="/" className="flex items-center gap-3 sm:gap-4 shrink-0 group">
           <Image
             src={images.logo}
@@ -63,32 +63,42 @@ export function Header() {
             </Link>
           ))}
           
-          <div className="group relative">
+          <div className="group">
             <button className="flex items-center gap-1 px-4 py-2 text-[10px] font-bold uppercase tracking-[0.2em] text-foreground/70 transition-colors hover:text-accent">
               Portfolio <ChevronDown className="h-3 w-3" />
             </button>
             
-            <div className="absolute left-0 top-full hidden w-[600px] bg-background shadow-2xl border border-taupe/20 group-hover:block transition-all p-10 rounded-sm">
-              <div className="grid grid-cols-2 gap-10">
+            <div className="absolute left-4 right-4 md:left-12 md:right-12 lg:left-1/2 lg:-translate-x-1/2 top-full hidden w-auto lg:w-[90vw] lg:max-w-[1000px] bg-background shadow-2xl border border-taupe/20 group-hover:block transition-all p-8 lg:p-12 rounded-sm z-50">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-12">
                 {catalogData.map(category => (
                   <div key={category.id} className="flex flex-col">
                     <Link 
                       href={`/categories/${category.id}`}
-                      className="text-xs font-bold text-primary-dark mb-5 pb-2 border-b border-taupe/20 uppercase tracking-widest hover:text-accent transition-colors"
+                      className="text-[11px] font-bold text-primary-dark mb-4 pb-2 border-b border-taupe/20 uppercase tracking-[0.2em] hover:text-accent transition-colors"
                     >
                       {category.name}
                     </Link>
-                    <ul className="space-y-3">
-                      {category.subcategories.map(sub => (
+                    <ul className="space-y-2">
+                      {category.subcategories.slice(0, 4).map(sub => (
                         <li key={sub.id}>
                           <Link 
                             href={`/categories/${category.id}/${sub.id}`}
-                            className="text-[10px] font-bold text-foreground/50 uppercase tracking-widest hover:text-accent transition-colors block"
+                            className="text-[10px] font-bold text-foreground/40 uppercase tracking-widest hover:text-accent transition-colors block"
                           >
                             {sub.name}
                           </Link>
                         </li>
                       ))}
+                      {category.subcategories.length > 4 && (
+                        <li>
+                          <Link 
+                            href={`/categories/${category.id}`}
+                            className="text-[9px] font-bold text-accent uppercase tracking-widest hover:underline block pt-1"
+                          >
+                            + {category.subcategories.length - 4} More
+                          </Link>
+                        </li>
+                      )}
                     </ul>
                   </div>
                 ))}
@@ -124,48 +134,67 @@ export function Header() {
 
       {/* Mobile Menu */}
       <div className={cn(
-        "fixed inset-0 top-[72px] z-40 bg-background/98 backdrop-blur-xl lg:hidden transition-transform duration-500",
+        "fixed inset-0 top-[72px] z-40 bg-background/98 backdrop-blur-xl lg:hidden transition-transform duration-500 overflow-y-auto",
         mobileOpen ? "translate-x-0" : "translate-x-full"
       )}>
-        <nav className="flex flex-col p-10 h-full overflow-y-auto">
+        <nav className="flex flex-col p-8 h-full">
           {navLinks.map((link) => (
             <Link
               key={link.href}
               href={link.href}
-              className="py-5 text-lg font-bold text-foreground/80 uppercase tracking-[0.2em] border-b border-taupe/10 hover:text-accent"
+              className="py-4 text-sm font-bold text-foreground/80 uppercase tracking-[0.2em] border-b border-taupe/10 hover:text-accent"
               onClick={() => setMobileOpen(false)}
             >
               {link.label}
             </Link>
           ))}
           
-          <div className="mt-10">
-            <p className="text-[10px] font-bold text-accent uppercase tracking-[0.3em] mb-8">Product Portfolio</p>
-            <div className="space-y-8">
-              {catalogData.map(category => (
-                <div key={category.id}>
-                  <Link 
-                    href={`/categories/${category.id}`}
-                    className="block text-sm font-bold text-primary-dark mb-4 uppercase tracking-widest"
-                    onClick={() => setMobileOpen(false)}
-                  >
-                    {category.name}
-                  </Link>
-                  <div className="grid grid-cols-2 gap-4">
-                    {category.subcategories.map(sub => (
-                      <Link
-                        key={sub.id}
-                        href={`/categories/${category.id}/${sub.id}`}
-                        className="text-[9px] font-bold text-foreground/50 uppercase tracking-widest"
-                        onClick={() => setMobileOpen(false)}
-                      >
-                        {sub.name}
-                      </Link>
-                    ))}
+          <div className="mt-8">
+            <button 
+              onClick={() => setActiveCategory(activeCategory === 'portfolio' ? null : 'portfolio')}
+              className="flex items-center justify-between w-full py-4 text-sm font-bold text-primary-dark uppercase tracking-[0.2em] border-b border-taupe/10"
+            >
+              Portfolio
+              <ChevronDown className={cn("h-4 w-4 transition-transform", activeCategory === 'portfolio' && "rotate-180")} />
+            </button>
+            
+            {activeCategory === 'portfolio' && (
+              <div className="mt-4 space-y-6 pl-4 border-l border-taupe/20">
+                {catalogData.map(category => (
+                  <div key={category.id}>
+                    <Link 
+                      href={`/categories/${category.id}`}
+                      className="block text-[11px] font-bold text-accent mb-3 uppercase tracking-widest"
+                      onClick={() => setMobileOpen(false)}
+                    >
+                      {category.name}
+                    </Link>
+                    <div className="grid grid-cols-1 gap-3">
+                      {category.subcategories.map(sub => (
+                        <Link
+                          key={sub.id}
+                          href={`/categories/${category.id}/${sub.id}`}
+                          className="text-[10px] font-bold text-foreground/50 uppercase tracking-widest"
+                          onClick={() => setMobileOpen(false)}
+                        >
+                          {sub.name}
+                        </Link>
+                      ))}
+                    </div>
                   </div>
-                </div>
-              ))}
+                ))}
+              </div>
+            )}
+          </div>
+
+          <div className="mt-auto pt-10 pb-8 flex flex-col gap-6">
+            <div className="flex flex-col">
+              <p className="text-[9px] font-bold text-foreground/40 uppercase tracking-[0.2em] mb-2">Connect Now</p>
+              <a href={`tel:${contact.primaryPhone}`} className="text-lg font-bold text-primary-dark tracking-widest">{contact.primaryPhone}</a>
             </div>
+            <Button asChild className="w-full bg-primary-dark h-14 rounded-sm">
+              <Link href="/contact#inquiry" className="text-xs font-bold uppercase tracking-[0.2em]" onClick={() => setMobileOpen(false)}>Request Quote</Link>
+            </Button>
           </div>
         </nav>
       </div>
