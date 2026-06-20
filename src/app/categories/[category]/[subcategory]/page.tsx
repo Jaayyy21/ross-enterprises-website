@@ -9,7 +9,7 @@ import { Button } from "@/components/ui/button";
 
 export async function generateStaticParams() {
   const params: { category: string; subcategory: string }[] = [];
-  
+
   catalogData.forEach((category) => {
     category.subcategories.forEach((sub) => {
       params.push({ category: category.id, subcategory: sub.id });
@@ -57,10 +57,10 @@ export default async function SubcategoryPage({ params }: { params: Promise<{ ca
                 src={subcategory.image}
                 alt={subcategory.name}
                 fill
-                className="object-cover"
+                className="object-contain p-8 bg-white"
                 priority
                 sizes="(max-width: 1024px) 100vw, 50vw"
-                unoptimized
+
               />
             </div>
           </div>
@@ -74,7 +74,7 @@ export default async function SubcategoryPage({ params }: { params: Promise<{ ca
             title="Product Families"
             subtitle={`Specific product lines available within ${subcategory.name.toLowerCase()}.`}
           />
-          
+
           {subcategory.families.length > 0 ? (
             <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
               {subcategory.families.map((family) => (
@@ -86,13 +86,13 @@ export default async function SubcategoryPage({ params }: { params: Promise<{ ca
                       fill
                       className="object-contain p-6 transition-transform duration-500 group-hover:scale-105"
                       sizes="(max-width: 768px) 100vw, 33vw"
-                      unoptimized
+
                     />
                   </div>
                   <CardContent className="flex flex-1 flex-col border-t border-border p-6">
                     <h3 className="text-lg font-semibold text-primary">{family.name}</h3>
                     <p className="mt-2 flex-1 text-sm text-muted">{family.description}</p>
-                    
+
                     {family.brands.length > 0 && (
                       <div className="mt-4 pt-4 border-t border-border/50">
                         <span className="text-xs font-semibold uppercase text-muted block mb-2">Available Brands:</span>

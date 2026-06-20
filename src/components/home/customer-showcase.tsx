@@ -1,65 +1,40 @@
 "use client";
 
-import React, { useState } from "react";
+import React from "react";
 import { ImageWithFallback as Image } from '@/components/ui/image-with-fallback';
-import { motion } from "framer-motion";
 import { SectionHeader } from "@/components/ui/section-header";
 import { customers } from "@/lib/company-data";
 
 export function CustomerShowcase() {
-  const [isHovered, setIsHovered] = useState(false);
 
   // Duplicate customers for seamless loop
   const loopCustomers = [...customers, ...customers];
 
   return (
-    <section className="bg-background py-24 lg:py-32 overflow-hidden border-t border-taupe/10">
+    <section className="bg-background py-16 md:py-16 md:py-24 overflow-hidden border-t border-taupe/10">
       <div className="mx-auto max-w-[1600px] px-4 sm:px-6 lg:px-12 mb-16">
         <SectionHeader
-          title="Trusted Industry Partners"
-          subtitle="Empowering leading companies across diverse sectors with reliable industrial solutions."
+          title="Trusted By Industry Leaders"
+          subtitle="Supporting manufacturers, OEMs, process industries, and engineering organizations across India since 1996."
           align="center"
         />
       </div>
 
-      <div 
-        className="relative"
-        onMouseEnter={() => setIsHovered(true)}
-        onMouseLeave={() => setIsHovered(false)}
-      >
-        <div className="flex overflow-hidden">
-          <motion.div
-            className="flex gap-12 sm:gap-20 items-center whitespace-nowrap"
-            animate={{
-              x: ["0%", "-50%"],
-            }}
-            transition={{
-              x: {
-                repeat: Infinity,
-                repeatType: "loop",
-                duration: 40,
-                ease: "linear",
-              },
-            }}
-            style={{ 
-              width: "fit-content",
-              pauseOnHover: true 
-            }}
-            whileHover={{ transition: { duration: 80 } }} // Slow down on hover instead of stopping completely for better effect
-          >
+      <div className="relative">
+        <div className="flex overflow-hidden w-full bg-texture py-6 border-y border-taupe/5">
+          <div className="flex gap-12 sm:gap-20 items-center w-max animate-marquee">
             {loopCustomers.map((customer, i) => (
               <div
                 key={`${customer.id}-${i}`}
-                className="flex flex-col items-center gap-4 group"
+                className="flex flex-col items-center gap-4 group shrink-0"
               >
-                <div className="relative h-12 w-24 sm:h-16 sm:w-32 grayscale opacity-40 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-500">
+                <div className="relative h-12 w-24 sm:h-16 sm:w-32 transition-transform duration-500 group-hover:scale-105">
                   <Image
                     src={customer.logo}
                     alt={customer.name}
                     fill
                     className="object-contain"
                     sizes="(max-width: 640px) 128px, 160px"
-                    unoptimized
                   />
                 </div>
                 <span className="text-[10px] font-bold uppercase tracking-widest text-foreground/30 group-hover:text-accent transition-colors duration-500">
@@ -67,7 +42,7 @@ export function CustomerShowcase() {
                 </span>
               </div>
             ))}
-          </motion.div>
+          </div>
         </div>
 
         {/* Gradient overlays for smooth fade effect */}

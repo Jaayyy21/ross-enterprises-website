@@ -10,7 +10,7 @@ export const company = {
   intro:
     "We would like to introduce ourselves as one of the foremost representative of companies like PARKER, LEGRIS, TRANSAIR, RECTUS, NITTO, ORIGA, PIAB, PNEUMAX, LUTHRA, CMATIC, BAUMER, UFLOW etc. which are into manufacturing of Pneumatics, Hydraulics, Instrumentation, Filter, Seals, Hoses & other products.",
   representation:
-    "We are representing these companies for the past 20 years.",
+    "We are representing these companies for the past 30 years.",
   expertise:
     "We have highly qualified and experienced techno crafts. We hold large quantity of stock and have very reputed clients. We see to it that individual attention is given to our customers regarding specific needs requiring any special consideration and material of construction.",
   history:
@@ -57,7 +57,7 @@ export const brands: Brand[] = [
     description:
       "Global leader in motion and control technologies — automation, instrumentation, hydraulics, filtration, fluid connectors, and seals.",
     href: "/brands/parker",
-    logo: "https://upload.wikimedia.org/wikipedia/commons/e/e7/Parker_Hannifin.svg",
+    logo: "/assets/logos/partners/parker.png",
     website: "https://www.parker.com",
   },
   {
@@ -67,8 +67,8 @@ export const brands: Brand[] = [
     description:
       "Push-in fittings, function fittings, technical tubing, industrial blowguns, valves, air service units, and adaptors for compressed air and industrial fluids.",
     href: "/brands/legris",
-    logo: "https://www.parker.com/content/dam/Parker-com/Static-Assets/Images/Logos/Parker-Legris-Logo.png",
-    website: "https://www.parker.com/legris",
+    logo: "/assets/logos/partners/legris.png",
+    website: "https://www.parker.com",
   },
   {
     id: "transair",
@@ -77,7 +77,7 @@ export const brands: Brand[] = [
     description:
       "Division of Parker Legris specializing in compressed air pipe work systems. Compatible with air, nitrogen, vacuum and argon.",
     href: "/brands/transair",
-    logo: "https://www.parker.com/content/dam/Parker-com/Static-Assets/Images/Logos/Parker-Transair-Logo.png",
+    logo: "/assets/logos/partners/transair.png",
     website: "https://www.parker.com/transair",
   },
   {
@@ -87,8 +87,8 @@ export const brands: Brand[] = [
     description:
       "Parker Quick Coupling Division Europe — complete quick connect coupling systems for low, medium and high pressure applications.",
     href: "/brands/rectus",
-    logo: "https://www.parker.com/content/dam/Parker-com/Static-Assets/Images/Logos/Parker-Rectus-Logo.png",
-    website: "https://www.parker.com/rectus",
+    logo: "/assets/logos/partners/rectus.png",
+    website: "https://www.parker.com",
   },
   {
     id: "nitto",
@@ -97,7 +97,7 @@ export const brands: Brand[] = [
     description:
       "The widest variety of quick connects for manufacturing fluids — air, water, hydraulic and test media — of the highest quality.",
     href: "/brands/nitto",
-    logo: "https://www.nitto-kohki.co.jp/common/img/logo.png",
+    logo: "/assets/logos/partners/nittokohki.png",
     website: "https://www.nitto-kohki.co.jp",
   },
   {
@@ -107,7 +107,7 @@ export const brands: Brand[] = [
     description:
       "Pneumatic and rodless cylinders with proven reliability, maintenance-free operation, and resistance to corrosion — from foundry to clean room.",
     href: "/brands/origa",
-    logo: "https://www.parker.com/content/dam/Parker-com/Static-Assets/Images/Logos/Parker-Hannifin-Logo.png",
+    logo: "/assets/logos/partners/origa.png",
     website: "https://www.parker.com",
   },
   {
@@ -117,7 +117,7 @@ export const brands: Brand[] = [
     description:
       "Established in 1951, Piab designs innovative vacuum solutions for automated material handling and factory automation processes.",
     href: "/brands/piab",
-    logo: "https://logos-download.com/wp-content/uploads/2020/08/Piab_Logo.svg",
+    logo: "/assets/logos/partners/piab.png",
     website: "https://www.piab.com",
   },
   {
@@ -127,7 +127,7 @@ export const brands: Brand[] = [
     description:
       "European manufacturer of pneumatic cylinders, valves, air service units, and manipulation components for industrial automation.",
     href: "/brands/pneumax",
-    logo: "https://www.pneumaxspa.com/wp-content/uploads/2019/05/logo-pneumax.png",
+    logo: "/assets/logos/partners/pneumax.png",
     website: "https://www.pneumaxspa.com",
   },
   {
@@ -137,8 +137,8 @@ export const brands: Brand[] = [
     description:
       "Leading manufacturer of pneumatic and hydraulic components, advance piping solutions, food grade fittings, and LLDPE tubes.",
     href: "/brands/luthra",
-    logo: "https://www.luthrapneumsys.com/wp-content/uploads/2021/06/logo.png",
-    website: "http://www.luthragroup.co.in",
+    logo: "/assets/logos/partners/luthra.png",
+    website: "https://www.luthrapneumsys.com",
   },
   {
     id: "cmatic",
@@ -147,7 +147,7 @@ export const brands: Brand[] = [
     description:
       "Specialized in push-in fittings and pneumatic fluid systems, providing high-quality solutions for industrial automation since 1979.",
     href: "/brands/cmatic",
-    logo: "https://www.cmatic.com/wp-content/uploads/2020/06/logo-cmatic.png",
+    logo: "/assets/logos/partners/cmatic.png",
     website: "https://www.cmatic.it",
   },
   {
@@ -157,7 +157,7 @@ export const brands: Brand[] = [
     description:
       "Baumer is a global leader in sensor technology and automation solutions, providing precision products for diverse industrial applications.",
     href: "/brands/baumer",
-    logo: "https://upload.wikimedia.org/wikipedia/commons/a/a4/Baumer_Logo.svg",
+    logo: "/assets/logos/partners/baumer.png",
     website: "https://www.baumer.com",
   },
   {
@@ -167,7 +167,7 @@ export const brands: Brand[] = [
     description:
       "UFLOW Automation is a leading manufacturer of industrial solenoid valves, pneumatic valves, and automation products for diverse industrial applications.",
     href: "/brands/uflow",
-    logo: "https://www.uflowautomation.com/assets/img/logo.png",
+    logo: "/assets/logos/partners/uflow.png",
     website: "https://www.uflowautomation.com",
   },
 ];
@@ -347,56 +347,56 @@ export const industries = [
     description:
       "Complete pneumatic systems, OEM package deals, and automation components for engineering contractors.",
     icon: "wrench",
-    image: "https://images.unsplash.com/photo-1581092160562-40aa08e78837?auto=format&fit=crop&q=80&w=1080",
+    image: "/assets/industries/engineering.png",
   },
   {
     name: "Pharmaceuticals",
     description:
       "Precision fluid control and cleanroom-compatible components for pharmaceutical manufacturing and processing.",
     icon: "pill",
-    image: "https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&q=80&w=1080",
+    image: "/assets/industries/pharma.png",
   },
   {
     name: "Chemicals",
     description:
       "Corrosion-resistant fittings, valves, and instrumentation for chemical processing and handling applications.",
     icon: "flask",
-    image: "https://images.unsplash.com/photo-1532187643603-eb11029ba359?auto=format&fit=crop&q=80&w=1080",
+    image: "/assets/industries/chemicals.png",
   },
   {
     name: "Textile",
     description:
       "Pneumatic cylinders, valves, and automation components specifically tailored for the textile industry.",
     icon: "cog",
-    image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&q=80&w=1080",
+    image: "/assets/industries/textile.png",
   },
   {
     name: "Packaging",
     description:
       "Vacuum handling and pneumatic automation solutions for high-speed packaging lines.",
     icon: "package",
-    image: "https://images.unsplash.com/photo-1581092335397-9583eb92d232?auto=format&fit=crop&q=80&w=1080",
+    image: "/assets/industries/packaging.png",
   },
   {
     name: "Food Processing",
     description:
       "Food grade fittings, LLDPE tubes, and hygienic components for food and beverage production.",
     icon: "utensils",
-    image: "https://images.unsplash.com/photo-1581092580497-e0d23cbdf1dc?auto=format&fit=crop&q=80&w=1080",
+    image: "/assets/industries/food.png",
   },
   {
     name: "Automotive",
     description:
       "Quick coupling systems, pneumatic components, and automation solutions for automotive production.",
     icon: "car",
-    image: "https://images.unsplash.com/photo-1621905252507-b35492cc74b4?auto=format&fit=crop&q=80&w=1080",
+    image: "/assets/industries/car.cms",
   },
   {
     name: "Oil & Gas",
     description:
       "High-pressure valves, hoses, and connectors for petrochemical plants and refineries.",
     icon: "factory",
-    image: "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&q=80&w=1080",
+    image: "/assets/industries/oil.png",
   },
 ];
 
@@ -433,63 +433,20 @@ export const whyChooseUs = [
   },
 ];
 
-export const featuredProducts = [
-  {
-    name: "Parker Legris Push-in Fittings",
-    brand: "Parker Legris",
-    description:
-      "For compressed air, non-corrosive fluids, water, beverages, coolants, inert gases, oil, and chemicals. 3 mm to 16 mm tube; M3 to G1/2\".",
-    image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&q=80&w=1080",
-  },
-  {
-    name: "Parker Origa Rodless Cylinders",
-    brand: "Parker Origa",
-    description:
-      "Maintenance-free rodless cylinders with stroke lengths up to 6000 mm, extended seal life, and pneumatic/electric drive types.",
-    image: "https://images.unsplash.com/photo-1621905252507-b35492cc74b4?auto=format&fit=crop&q=80&w=1080",
-  },
-  {
-    name: "Piab Vacuum Solutions",
-    brand: "Piab",
-    description:
-      "Suction cups, vacuum pumps, COAX® technology generators, and vacuum conveyors for powder and bulk material handling.",
-    image: "https://images.unsplash.com/photo-1532187643603-eb11029ba359?auto=format&fit=crop&q=80&w=1080",
-  },
-  {
-    name: "Transair Compressed Air Systems",
-    brand: "Transair",
-    description:
-      "Modular aluminum pipe systems for compressed air, nitrogen, vacuum and argon. Diameters 17–168 mm, up to 16 bar.",
-    image: "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&q=80&w=1080",
-  },
-  {
-    name: "Pneumax Standard Cylinders",
-    brand: "Pneumax",
-    description:
-      "European-manufactured standard/VDMA pneumatic cylinders, valves, FRL units, and manipulation components.",
-    image: "https://images.unsplash.com/photo-1581092335397-9583eb92d232?auto=format&fit=crop&q=80&w=1080",
-  },
-  {
-    name: "Nitto Kohki Quick Connects",
-    brand: "Nitto Kohki",
-    description:
-      "The widest variety of quick connects for air, water, hydraulic, and test media applications worldwide.",
-    image: "https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?auto=format&fit=crop&q=80&w=1080",
-  },
-];
+
 
 export const stats = [
   { label: "Years in Business", value: "30+" },
   { label: "Global Brands", value: "12+" },
-  { label: "Product Categories", value: "6" },
+  { label: "Product Categories", value: "9" },
   { label: "Industries Served", value: "8" },
 ];
 
 export const images = {
-  logo: "https://images.unsplash.com/photo-1513828583688-c52646db42da?auto=format&fit=crop&q=80&w=1080",
-  hero: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&q=80&w=1080",
-  about: "https://images.unsplash.com/photo-1581092160562-40aa08e78837?auto=format&fit=crop&q=80&w=1080",
-  facility: "https://images.unsplash.com/photo-1581092335397-9583eb92d232?auto=format&fit=crop&q=80&w=1080",
+  logo: "/assets/logos/ross-enterprises/rosslogo.png",
+  hero: "/assets/product/pneumatics.png",
+  about: "/assets/industries/engineering.png",
+  facility: "/assets/industries/oil.png",
 };
 
 export interface Customer {
@@ -507,7 +464,7 @@ export const customers: Customer[] = [
   {
     id: "siemens",
     name: "Siemens",
-    logo: "https://logodownload.org/wp-content/uploads/2014/04/siemens-logo-1.png",
+    logo: "/assets/logos/customers/siemens.png",
     industry: "Industrial Automation",
     description: "Global technology powerhouse focusing on industry, infrastructure, transport, and healthcare.",
     products: ["Pneumatic Systems", "Instrumentation", "Valves"],
@@ -517,7 +474,7 @@ export const customers: Customer[] = [
   {
     id: "abb",
     name: "ABB",
-    logo: "https://logodownload.org/wp-content/uploads/2019/08/abb-logo-1.png",
+    logo: "/assets/logos/customers/abb.png",
     industry: "Electrical Equipment",
     description: "Leading global technology company that energizes the transformation of society and industry.",
     products: ["Hydraulic Systems", "Sensors", "Connectors"],
@@ -527,7 +484,7 @@ export const customers: Customer[] = [
   {
     id: "elecon",
     name: "Elecon",
-    logo: "https://static.cdnlogo.com/logos/e/10/elecon-engineering.png",
+    logo: "/assets/logos/customers/elecon.png",
     industry: "Engineering",
     description: "One of the largest manufacturers of material handling equipment and industrial gears in Asia.",
     products: ["Pneumatic Cylinders", "FRL Units"],
@@ -537,7 +494,7 @@ export const customers: Customer[] = [
   {
     id: "ge",
     name: "GE (General Electric)",
-    logo: "https://www.freepnglogos.com/uploads/general-electric-logo-png/general-electric-logo-ge-png-1.png",
+    logo: "/assets/logos/customers/generalelectric.png",
     industry: "Conglomerate",
     description: "Multinational conglomerate operating in sectors including aviation, power, and renewable energy.",
     products: ["Instrumentation", "Filtration Solutions"],
@@ -547,7 +504,7 @@ export const customers: Customer[] = [
   {
     id: "ceat",
     name: "CEAT",
-    logo: "https://static.cdnlogo.com/logos/c/25/ceat.png",
+    logo: "/assets/logos/customers/ceat.png",
     industry: "Tyre Manufacturing",
     description: "One of India's leading tyre manufacturers with a global presence.",
     products: ["Pneumatic Valves", "Hoses", "Fittings"],
@@ -557,7 +514,7 @@ export const customers: Customer[] = [
   {
     id: "apollo",
     name: "Apollo",
-    logo: "https://corporate.apollotyres.com/media/1001/apollo-tyres-logo.png",
+    logo: "/assets/logos/customers/apollo.svg",
     industry: "Tyre Manufacturing",
     description: "Global tyre manufacturer with state-of-the-art manufacturing facilities.",
     products: ["Vacuum Systems", "Pneumatic Actuators"],
@@ -567,7 +524,7 @@ export const customers: Customer[] = [
   {
     id: "banco",
     name: "Banco",
-    logo: "https://bancoindia.com/wp-content/uploads/2021/05/logo.png",
+    logo: "/assets/logos/customers/banco.png",
     industry: "Automotive Components",
     description: "Leader in engine cooling and sealing systems for automotive and industrial applications.",
     products: ["Seals & O-Rings", "Hydraulic Fittings"],
@@ -577,7 +534,7 @@ export const customers: Customer[] = [
   {
     id: "zydus",
     name: "Zydus",
-    logo: "https://companieslogo.com/img/orig/ZYDUSLIFE.NS-6e8e8e8e.png",
+    logo: "/assets/logos/customers/zydus.png",
     industry: "Pharmaceuticals",
     description: "Global lifesciences company dedicated to healthcare.",
     products: ["Cleanroom Fittings", "Stainless Steel Valves"],
@@ -587,7 +544,7 @@ export const customers: Customer[] = [
   {
     id: "raychem-rpg",
     name: "Raychem RPG",
-    logo: "https://www.rpggroup.com/assets/images/logo/raychem-rpg.png",
+    logo: "/assets/logos/customers/raychem.png",
     industry: "Energy & Infrastructure",
     description: "Leading player in the energy and infrastructure sector.",
     products: ["Instrumentation", "Connectors"],
@@ -597,7 +554,7 @@ export const customers: Customer[] = [
   {
     id: "everest-spices",
     name: "Everest Spices",
-    logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Logo_of_Everest_spices.png/800px-Logo_of_Everest_spices.png",
+    logo: "/assets/logos/customers/everest.png",
     industry: "Food & Beverage",
     description: "India's largest selling spice brand.",
     products: ["Pneumatic Conveying Systems", "Food-Grade Tubing"],
@@ -607,7 +564,7 @@ export const customers: Customer[] = [
   {
     id: "real-namkeen",
     name: "Real Namkeen",
-    logo: "https://realbites.com/wp-content/uploads/2023/05/Real-Bites-Logo.png",
+    logo: "/assets/logos/customers/real.png",
     industry: "Food & Beverage",
     description: "Popular Indian snack manufacturer.",
     products: ["Vacuum Grippers", "Pneumatic Valves"],
@@ -617,7 +574,7 @@ export const customers: Customer[] = [
   {
     id: "mg-motor",
     name: "MG Motor",
-    logo: "https://logos-download.com/wp-content/uploads/2016/02/MG_Motor_logo.png",
+    logo: "/assets/logos/customers/mg.png",
     industry: "Automotive",
     description: "Global automotive brand known for its innovation and heritage.",
     products: ["Hydraulic Power Packs", "Quick Couplings"],
@@ -627,7 +584,7 @@ export const customers: Customer[] = [
   {
     id: "schneider-electric",
     name: "Schneider Electric",
-    logo: "https://companieslogo.com/img/orig/SU.PA-6e8e8e8e.png",
+    logo: "/assets/logos/customers/schneider.png",
     industry: "Energy Management",
     description: "Global leader in energy management and automation.",
     products: ["Sensors", "Automation Components"],
@@ -637,7 +594,7 @@ export const customers: Customer[] = [
   {
     id: "rotex",
     name: "Rotex",
-    logo: "https://rotexautomation.com/wp-content/uploads/2021/06/Rotex-Logo.png",
+    logo: "/assets/logos/customers/rotex.png",
     industry: "Automation",
     description: "Leading manufacturer of solenoid valves and actuators.",
     products: ["Solenoid Valves", "Positioners"],
@@ -647,7 +604,7 @@ export const customers: Customer[] = [
   {
     id: "amul-dairy",
     name: "Amul Dairy",
-    logo: "https://amul.com/files/logos/amul-logo.png",
+    logo: "/assets/logos/customers/amul.png",
     industry: "Dairy",
     description: "World's largest milk producer.",
     products: ["Stainless Steel Fittings", "Pneumatic Valves"],
@@ -657,7 +614,7 @@ export const customers: Customer[] = [
   {
     id: "birla-century",
     name: "Birla Century",
-    logo: "https://www.adityabirla.com/assets/images/logo.png",
+    logo: "/assets/logos/customers/aditya.png",
     industry: "Textiles",
     description: "Leading textile manufacturer part of Aditya Birla Group.",
     products: ["Pneumatic Cylinders", "Lubricators"],

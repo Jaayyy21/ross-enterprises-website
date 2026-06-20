@@ -21,6 +21,7 @@ export function Header() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [activeCategory, setActiveCategory] = useState<string | null>(null);
   const [scrolled, setScrolled] = useState(false);
+  const [portfolioOpen, setPortfolioOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 20);
@@ -44,7 +45,7 @@ export function Header() {
             height={48}
             className="h-8 w-auto sm:h-10 object-contain transition-transform group-hover:scale-105"
             priority
-            unoptimized
+
           />
           <div className="flex flex-col border-l border-taupe/30 pl-3 sm:pl-4">
             <span className="text-[10px] sm:text-sm font-bold uppercase tracking-[0.2em] text-primary-dark whitespace-nowrap">Ross Enterprises</span>
@@ -62,13 +63,20 @@ export function Header() {
               {link.label}
             </Link>
           ))}
-          
+
           <div className="group">
-            <button className="flex items-center gap-1 px-4 py-2 text-[10px] font-bold uppercase tracking-[0.2em] text-foreground/70 transition-colors hover:text-accent">
-              Portfolio <ChevronDown className="h-3 w-3" />
+            <button 
+              onClick={() => setPortfolioOpen(!portfolioOpen)}
+              onBlur={() => setTimeout(() => setPortfolioOpen(false), 200)}
+              className="flex items-center gap-1 px-4 py-2 text-[10px] font-bold uppercase tracking-[0.2em] text-foreground/70 transition-colors hover:text-accent"
+            >
+              Portfolio <ChevronDown className={cn("h-3 w-3 transition-transform", portfolioOpen && "rotate-180")} />
             </button>
-            
-            <div className="absolute left-4 right-4 md:left-12 md:right-12 lg:left-1/2 lg:-translate-x-1/2 top-full hidden w-auto lg:w-[90vw] lg:max-w-[1000px] bg-background shadow-2xl border border-taupe/20 group-hover:block transition-all p-8 lg:p-12 rounded-sm z-50">
+
+            <div className={cn(
+              "absolute left-4 right-4 md:left-12 md:right-12 lg:left-1/2 lg:-translate-x-1/2 top-full w-auto lg:w-[90vw] lg:max-w-[1000px] bg-background shadow-2xl border border-taupe/20 transition-all p-8 lg:p-12 rounded-sm z-50",
+              portfolioOpen ? "block" : "hidden"
+            )}>
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-12">
                 {catalogData.map(category => (
                   <div key={category.id} className="flex flex-col">
@@ -148,7 +156,7 @@ export function Header() {
               {link.label}
             </Link>
           ))}
-          
+
           <div className="mt-8">
             <button 
               onClick={() => setActiveCategory(activeCategory === 'portfolio' ? null : 'portfolio')}
@@ -157,7 +165,7 @@ export function Header() {
               Portfolio
               <ChevronDown className={cn("h-4 w-4 transition-transform", activeCategory === 'portfolio' && "rotate-180")} />
             </button>
-            
+
             {activeCategory === 'portfolio' && (
               <div className="mt-4 space-y-6 pl-4 border-l border-taupe/20">
                 {catalogData.map(category => (

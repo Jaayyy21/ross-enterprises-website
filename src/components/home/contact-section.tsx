@@ -7,7 +7,7 @@ import { contact, company } from "@/lib/company-data";
 
 export function ContactSection() {
   return (
-    <section className="bg-beige/40 py-24 lg:py-32 relative bg-grain">
+    <section className="bg-beige/40 py-16 md:py-16 md:py-24 relative bg-grain">
       <div className="mx-auto max-w-[1600px] px-4 sm:px-6 lg:px-12">
         <div className="grid lg:grid-cols-2 gap-24 items-center">
           <div>
@@ -53,7 +53,7 @@ export function ContactSection() {
                 </div>
                 <h3 className="text-2xl font-bold text-primary-dark mb-4 tracking-tight">Email Desk</h3>
                 <div className="space-y-3">
-                  {contact.emails.slice(0, 2).map((email) => (
+                  {contact.emails.slice(0, 3).map((email) => (
                     <a
                       key={email}
                       href={`mailto:${email}`}

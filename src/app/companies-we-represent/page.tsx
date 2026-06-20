@@ -40,20 +40,23 @@ export default function CompaniesPage() {
             {brands.map((brand) => (
               <div
                 key={brand.id}
-                className="group relative grid lg:grid-cols-12 gap-10 lg:gap-20 p-10 lg:p-16 rounded-sm bg-background border border-taupe/10 shadow-sm transition-all duration-700 hover:shadow-2xl hover:border-accent/30"
+                className="group relative grid lg:grid-cols-12 gap-10 lg:gap-20 p-10 lg:p-16 rounded-sm bg-white border border-taupe/20 shadow-md shadow-taupe/5 transition-all duration-500 hover:shadow-lg hover:shadow-taupe/20 hover:-translate-y-1 hover:border-accent/40"
               >
                 {/* Logo & Basic Info */}
                 <div className="lg:col-span-4 flex flex-col">
-                  <Link href={`/brands/${brand.id}`} className="relative h-24 w-full mb-10 transition-all duration-700 group-hover:scale-105">
+                  <Link href={`/companies-we-represent/${brand.id}`} className="relative h-24 w-full mb-10 transition-all duration-700 group-hover:scale-105">
                     <Image
                       src={brand.logo}
                       alt={brand.name}
                       fill
-                      className="object-contain object-left"
-                      unoptimized
+                      className={`object-contain object-left mix-blend-multiply ${
+                        brand.id === 'parker' ? 'scale-[1.4] origin-left' : 
+                        brand.id === 'transair' ? 'scale-[1.5] origin-left' : ''
+                      }`}
+
                     />
                   </Link>
-                  <Link href={`/brands/${brand.id}`}>
+                  <Link href={`/companies-we-represent/${brand.id}`}>
                     <h2 className="text-3xl font-bold text-primary-dark mb-2 tracking-tight group-hover:text-accent transition-colors">
                       {brand.name}
                     </h2>

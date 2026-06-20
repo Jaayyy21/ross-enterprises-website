@@ -1,23 +1,36 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useTransition } from "react";
 import { motion } from "framer-motion";
-import { Send, ArrowRight, ShieldCheck, Headphones } from "lucide-react";
+import { Send, ArrowRight, ShieldCheck, Headphones, AlertCircle } from "lucide-react";
 import { SectionHeader } from "@/components/ui/section-header";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
+import { submitInquiryAction } from "@/app/actions/submit-inquiry";
 
 export function InquiryForm() {
   const [submitted, setSubmitted] = useState(false);
+  const [error, setError] = useState("");
+  const [isPending, startTransition] = useTransition();
 
   function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    setSubmitted(true);
+    setError("");
+    const formData = new FormData(e.currentTarget);
+    
+    startTransition(async () => {
+      const result = await submitInquiryAction(null, formData);
+      if (result.success) {
+        setSubmitted(true);
+      } else {
+        setError(result.error || "An unexpected error occurred.");
+      }
+    });
   }
 
   return (
-    <section id="inquiry" className="py-24 lg:py-32 bg-primary-dark bg-grain relative overflow-hidden">
+    <section id="inquiry" className="py-16 md:py-16 md:py-24 bg-primary-dark bg-grain relative overflow-hidden">
       {/* Decorative gradients */}
       <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-accent/5 rounded-full blur-[150px] pointer-events-none" />
       <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-taupe/10 rounded-full blur-[120px] pointer-events-none" />
@@ -32,7 +45,7 @@ export function InquiryForm() {
               align="left"
               className="mb-12"
             />
-            
+
             <div className="space-y-12 mt-16">
               <div className="flex flex-col sm:flex-row gap-6 sm:gap-8 group">
                 <div className="flex h-14 w-14 items-center justify-center rounded-sm bg-accent/10 border border-accent/20 shrink-0 group-hover:bg-accent/20 transition-colors duration-500">
@@ -43,7 +56,7 @@ export function InquiryForm() {
                   <p className="text-background/50 text-sm leading-relaxed font-medium">Direct representation of Parker, Legris, and other world-class brands ensuring 100% genuine components.</p>
                 </div>
               </div>
-              
+
               <div className="flex flex-col sm:flex-row gap-6 sm:gap-8 group">
                 <div className="flex h-14 w-14 items-center justify-center rounded-sm bg-accent/10 border border-accent/20 shrink-0 group-hover:bg-accent/20 transition-colors duration-500">
                   <Headphones className="h-7 w-7 text-accent" />
@@ -54,7 +67,7 @@ export function InquiryForm() {
                 </div>
               </div>
             </div>
-            
+
             <div className="mt-20 p-6 sm:p-10 bg-background/5 rounded-sm border border-white/5 backdrop-blur-sm relative overflow-hidden">
               <div className="absolute top-0 left-0 w-1 bg-accent h-1/2" />
               <p className="text-background/80 font-medium italic text-[15px] leading-relaxed relative z-10">
@@ -72,9 +85,9 @@ export function InquiryForm() {
             className="bg-background p-6 sm:p-12 lg:p-16 rounded-sm shadow-[0_50px_100px_rgba(0,0,0,0.4)] relative overflow-hidden border border-taupe/10"
           >
             <div className="absolute top-0 right-0 w-32 h-32 border-r border-t border-accent/20 translate-x-16 -translate-y-16" />
-            
+
             {submitted ? (
-              <div className="py-24 text-center">
+              <div className="py-16 md:py-24 text-center">
                 <motion.div 
                   initial={{ scale: 0 }}
                   animate={{ scale: 1 }}
@@ -93,6 +106,12 @@ export function InquiryForm() {
               </div>
             ) : (
               <form onSubmit={handleSubmit} className="space-y-10 relative z-10">
+                {error && (
+                  <div className="p-4 bg-red-500/10 border border-red-500/20 rounded-sm flex items-start gap-3">
+                    <AlertCircle className="h-5 w-5 text-red-500 shrink-0 mt-0.5" />
+                    <p className="text-sm font-medium text-red-500/90">{error}</p>
+                  </div>
+                )}
                 <div className="grid gap-10 sm:grid-cols-2">
                   <div className="space-y-4">
                     <label className="text-[10px] font-bold uppercase tracking-[0.3em] text-foreground/30 ml-1">Representative Name</label>
@@ -125,9 +144,9 @@ export function InquiryForm() {
                   <Textarea id="message" name="message" placeholder="Include technical specifications, quantities, or specific brand preferences..." rows={4} className="border-taupe/20 bg-beige/10 rounded-sm focus:bg-background focus:border-accent transition-all resize-none p-6 placeholder:text-foreground/20" />
                 </div>
 
-                <Button type="submit" size="lg" className="w-full h-16 bg-primary-dark hover:bg-primary text-background rounded-sm shadow-2xl transition-all duration-500 active:scale-[0.98] uppercase tracking-[0.2em] text-[11px] font-bold">
-                  Submit Technical Brief
-                  <ArrowRight className="h-4 w-4 ml-4" />
+                <Button disabled={isPending} type="submit" size="lg" className="w-full h-16 bg-primary-dark hover:bg-primary text-background rounded-sm shadow-2xl transition-all duration-500 active:scale-[0.98] uppercase tracking-[0.2em] text-[11px] font-bold">
+                  {isPending ? "Submitting..." : "Submit Technical Brief"}
+                  {!isPending && <ArrowRight className="h-4 w-4 ml-4" />}
                 </Button>
               </form>
             )}

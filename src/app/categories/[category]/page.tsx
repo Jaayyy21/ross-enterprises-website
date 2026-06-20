@@ -5,7 +5,6 @@ import { SectionHeader } from "@/components/ui/section-header";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { catalogData, getCategoryById } from "@/lib/catalog-data";
-import { brands } from "@/lib/company-data";
 import { ArrowRight } from "lucide-react";
 
 export async function generateStaticParams() {
@@ -22,8 +21,6 @@ export default async function CategoryPage({ params }: { params: Promise<{ categ
     notFound();
   }
 
-  const categoryBrands = brands.filter((b) => category.featuredBrands.includes(b.id));
-
   return (
     <div className="flex flex-col">
       {/* Category Hero */}
@@ -36,7 +33,7 @@ export default async function CategoryPage({ params }: { params: Promise<{ categ
             className="object-cover opacity-30"
             priority
             sizes="100vw"
-            unoptimized
+
           />
           <div className="absolute inset-0 bg-gradient-to-t from-primary via-primary/80 to-transparent" />
         </div>
@@ -64,9 +61,9 @@ export default async function CategoryPage({ params }: { params: Promise<{ categ
                       src={sub.image}
                       alt={sub.name}
                       fill
-                      className="object-cover transition-transform duration-500 group-hover:scale-105"
+                      className="object-contain p-6 transition-transform duration-500 group-hover:scale-105"
                       sizes="(max-width: 768px) 100vw, 33vw"
-                      unoptimized
+
                     />
                   </div>
                   <CardContent className="flex flex-1 flex-col p-6">
@@ -81,35 +78,6 @@ export default async function CategoryPage({ params }: { params: Promise<{ categ
             ))}
           </div>
         </div>
-      </section>
-
-      {/* Featured Brands */}
-      {categoryBrands.length > 0 && (
-        <section className="py-20">
-          <div className="mx-auto max-w-[1600px] px-4 sm:px-6 lg:px-12">
-            <SectionHeader
-              title={`Trusted Brands in ${category.name}`}
-              subtitle="We partner with industry leaders to deliver uncompromised quality."
-            />
-            <div className="mt-10 flex flex-wrap gap-8 justify-center">
-              {categoryBrands.map((brand) => (
-                <div key={brand.id} className="flex flex-col items-center justify-center p-4">
-                  <div className="relative h-20 w-40 overflow-hidden rounded-md border border-border bg-white shadow-sm transition-shadow hover:shadow-md">
-                    <Image
-                      src={brand.logo}
-                      alt={brand.name}
-                      fill
-                      className="object-contain p-2"
-                      unoptimized
-                    />
-                  </div>
-                  <span className="mt-3 text-sm font-semibold text-muted">{brand.name}</span>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-      )}
-    </div>
+      </section>    </div>
   );
 }

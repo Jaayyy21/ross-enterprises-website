@@ -40,11 +40,11 @@ export default async function BrandPage({ params }: BrandPageProps) {
       <section className="bg-primary py-16">
         <div className="mx-auto max-w-[1600px] px-4 sm:px-6 lg:px-12">
           <Link
-            href="/brands"
+            href="/companies-we-represent"
             className="inline-flex items-center gap-2 text-sm text-white/70 hover:text-white transition-colors mb-6"
           >
             <ArrowLeft className="h-4 w-4" />
-            All Brands
+            All Partners
           </Link>
           <div className="flex flex-col gap-8 sm:flex-row sm:items-center">
             <div className="relative h-24 w-24 overflow-hidden rounded-lg bg-white p-3">
@@ -52,7 +52,10 @@ export default async function BrandPage({ params }: BrandPageProps) {
                 src={brand.logo}
                 alt={brand.name}
                 fill
-                className="object-contain p-2"
+                className={`object-contain p-2 mix-blend-multiply ${
+                  brand.id === 'parker' ? 'scale-[1.4]' : 
+                  brand.id === 'transair' ? 'scale-[1.5]' : ''
+                }`}
                 sizes="96px"
               />
             </div>
@@ -97,7 +100,7 @@ export default async function BrandPage({ params }: BrandPageProps) {
                 application requirements.
               </p>
               <Button asChild className="mt-6">
-                <Link href="/contact#inquiry">
+                <Link href="/contact">
                   Request a Quote
                   <ArrowRight className="h-4 w-4" />
                 </Link>

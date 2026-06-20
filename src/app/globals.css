@@ -9,7 +9,7 @@
   --beige: #E9DDC8;      /* Warm Beige */
   --taupe: #C9B59A;      /* Soft Taupe */
   --sand: #DCC9AB;       /* Sand */
-  --muted: #6B5E55;
+  --muted: #4A4038;      /* Darkened for contrast */
   --border: #DCC9AB;
   --surface: #FDF6E8;
 }
@@ -92,4 +92,21 @@ body {
   background-image: url("https://www.transparenttextures.com/patterns/natural-paper.png");
   opacity: 0.04;
   pointer-events: none;
+}
+
+/* Marquee Animation */
+@keyframes marquee {
+  0% { transform: translateX(0%); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-marquee {
+  animation: marquee 40s linear infinite;
+  will-change: transform;
+}
+
+@media (hover: hover) {
+  .animate-marquee:hover {
+    animation-play-state: paused;
+  }
 }

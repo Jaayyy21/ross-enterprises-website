@@ -19,7 +19,7 @@ export function Hero() {
           className="object-cover opacity-20 grayscale brightness-125"
           priority
           sizes="100vw"
-          unoptimized
+
         />
         {/* Layered gradients for "atmospheric" feel */}
         <div className="absolute inset-0 bg-gradient-to-tr from-beige/60 via-transparent to-taupe/20" />

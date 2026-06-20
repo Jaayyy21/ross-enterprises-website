@@ -7,7 +7,7 @@ import Link from "next/link";
 
 export function BrandsSection() {
   return (
-    <section className="py-24 bg-background bg-grain border-y border-taupe/10 relative">
+    <section className="py-16 md:py-24 bg-background bg-grain border-y border-taupe/10 relative">
       <div className="mx-auto max-w-[1600px] px-4 sm:px-6 lg:px-12">
         <div className="flex flex-col items-center mb-16">
           <motion.div
@@ -36,7 +36,7 @@ export function BrandsSection() {
               className="group relative flex flex-col items-center"
             >
               <Link 
-                href={`/brands/${brand.id}`} 
+                href={`/companies-we-represent/${brand.id}`} 
                 title={brand.name} 
                 className="relative h-16 w-full group-hover:scale-105 transition-transform duration-500"
               >
@@ -44,12 +44,14 @@ export function BrandsSection() {
                   src={brand.logo}
                   alt={brand.name}
                   fill
-                  className="object-contain"
-                  unoptimized
+                  className={`object-contain mix-blend-multiply ${
+                    brand.id === 'parker' ? 'scale-[1.4]' : 
+                    brand.id === 'transair' ? 'scale-[1.5]' : ''
+                  }`}
                 />
               </Link>
               <Link 
-                href={`/brands/${brand.id}`} 
+                href={`/companies-we-represent/${brand.id}`} 
                 className="mt-6 text-[11px] font-bold uppercase tracking-[0.2em] text-primary-dark group-hover:text-accent transition-colors duration-500 text-center"
               >
                 {brand.name}
@@ -58,7 +60,7 @@ export function BrandsSection() {
             </motion.div>
           ))}
         </div>
-        
+
         <div className="mt-24 pt-12 border-t border-taupe/10 text-center">
           <p className="text-[13px] text-foreground/40 font-medium italic tracking-wide">
             "Direct authorized representative providing genuine spares and comprehensive technical assistance since 1996."

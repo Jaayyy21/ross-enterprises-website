@@ -9,7 +9,7 @@ interface ImageWithFallbackProps extends ImageProps {
 
 export function ImageWithFallback({
   src,
-  fallbackSrc = "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&q=80&w=1080",
+  fallbackSrc = "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&q=80&w=1080", // generic placeholder
   alt,
   ...rest
 }: ImageWithFallbackProps) {
@@ -26,6 +26,7 @@ export function ImageWithFallback({
       {...rest}
       src={error ? fallbackSrc : imgSrc}
       alt={alt}
+      unoptimized={typeof src === 'string' && src.startsWith('/assets/')}
       onError={() => {
         setError(true);
       }}

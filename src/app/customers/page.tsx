@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { ImageWithFallback as Image } from '@/components/ui/image-with-fallback';
 import Link from "next/link";
 import { customers } from "@/lib/company-data";
-import { CheckCircle2, Building2, Briefcase, Zap } from "lucide-react";
+import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Companies We Serve",
@@ -36,74 +36,23 @@ export default function CustomersPage() {
       {/* Customers Grid */}
       <section className="py-32 bg-grain relative">
         <div className="mx-auto max-w-[1600px] px-4 sm:px-6 lg:px-12">
-          <div className="grid gap-16 lg:grid-cols-2">
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 lg:gap-10">
             {customers.map((customer) => (
               <div
                 key={customer.id}
-                className="group relative flex flex-col p-10 lg:p-12 rounded-sm bg-background border border-taupe/10 shadow-sm transition-all duration-700 hover:shadow-2xl hover:border-accent/30"
+                className="group relative flex flex-col items-center justify-center p-8 lg:p-12 rounded-sm bg-white border border-taupe/20 shadow-md shadow-taupe/5 transition-all duration-500 hover:shadow-lg hover:shadow-taupe/20 hover:-translate-y-1 hover:border-accent/40 aspect-square sm:aspect-video"
               >
-                <div className="flex flex-col sm:flex-row gap-10 mb-10">
-                  <div className="relative h-20 w-20 shrink-0 bg-beige/10 rounded-sm p-4 border border-taupe/10 group-hover:border-accent/30 transition-colors">
-                    <Image
-                      src={customer.logo}
-                      alt={customer.name}
-                      fill
-                      className="object-contain"
-                      unoptimized
-                    />
-                  </div>
-                  <div>
-                    <h2 className="text-3xl font-bold text-primary-dark mb-2 tracking-tight">
-                      {customer.name}
-                    </h2>
-                    <div className="flex items-center gap-3 text-accent font-bold uppercase tracking-widest text-[10px]">
-                      <Building2 className="h-3 w-3" />
-                      {customer.industry}
-                    </div>
-                  </div>
+                <div className="relative h-16 w-full sm:h-20 mb-6">
+                  <Image
+                    src={customer.logo}
+                    alt={customer.name}
+                    fill
+                    className="object-contain transition-transform duration-500 group-hover:scale-105"
+                  />
                 </div>
-
-                <p className="text-lg leading-relaxed text-foreground/70 font-medium mb-12">
-                  {customer.description}
-                </p>
-
-                <div className="grid sm:grid-cols-2 gap-10 mt-auto">
-                  <div className="space-y-6">
-                    <div className="flex items-center gap-3">
-                      <Briefcase className="h-4 w-4 text-taupe" />
-                      <h3 className="text-[10px] font-bold uppercase tracking-[0.3em] text-taupe">Products Supplied</h3>
-                    </div>
-                    <ul className="space-y-3">
-                      {customer.products.map((item, idx) => (
-                        <li key={idx} className="flex gap-3 items-center text-[13px] font-medium text-foreground/60">
-                          <CheckCircle2 className="h-3 w-3 text-accent shrink-0" />
-                          {item}
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-
-                  <div className="space-y-6">
-                    <div className="flex items-center gap-3">
-                      <Zap className="h-4 w-4 text-taupe" />
-                      <h3 className="text-[10px] font-bold uppercase tracking-[0.3em] text-taupe">Solutions Delivered</h3>
-                    </div>
-                    <ul className="space-y-3">
-                      {customer.solutions.map((item, idx) => (
-                        <li key={idx} className="flex gap-3 items-center text-[13px] font-medium text-foreground/60">
-                          <CheckCircle2 className="h-3 w-3 text-accent shrink-0" />
-                          {item}
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                </div>
-
-                <div className="mt-12 pt-8 border-t border-taupe/10">
-                  <p className="text-[11px] font-bold text-taupe uppercase tracking-widest">
-                    Relationship: <span className="text-foreground/40 italic font-medium lowercase tracking-normal">{customer.relationship}</span>
-                  </p>
-                </div>
+                <h2 className="text-xs sm:text-sm font-bold text-primary-dark tracking-widest uppercase text-center transition-colors group-hover:text-accent">
+                  {customer.name}
+                </h2>
               </div>
             ))}
           </div>

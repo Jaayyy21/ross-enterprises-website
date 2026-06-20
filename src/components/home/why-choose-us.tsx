@@ -9,11 +9,11 @@ const iconMap = [History, Settings, Box, Award, Users, Zap];
 
 export function WhyChooseUs() {
   return (
-    <section className="py-24 lg:py-32 bg-background bg-grain relative overflow-hidden">
+    <section className="py-16 md:py-16 md:py-24 bg-background bg-grain relative overflow-hidden">
       {/* Decorative background element */}
       <div className="absolute -right-20 top-1/2 -translate-y-1/2 h-[600px] w-[600px] rounded-full bg-beige/40 blur-[120px] pointer-events-none" />
       <div className="absolute -left-20 top-0 h-[400px] w-[400px] rounded-full bg-taupe/10 blur-[100px] pointer-events-none" />
-      
+
       <div className="mx-auto max-w-[1600px] px-4 sm:px-6 lg:px-12 relative">
         <SectionHeader
           title="The Ross Advantage"
@@ -48,7 +48,7 @@ export function WhyChooseUs() {
             );
           })}
         </div>
-        
+
         <motion.div 
           initial={{ opacity: 0, scale: 0.98 }}
           whileInView={{ opacity: 1, scale: 1 }}
@@ -59,7 +59,7 @@ export function WhyChooseUs() {
           <div className="absolute inset-0 bg-accent/5 opacity-0 group-hover:opacity-100 transition-opacity duration-1000" />
           <div className="absolute top-0 left-0 w-20 h-20 border-l border-t border-accent/20 m-4" />
           <div className="absolute bottom-0 right-0 w-20 h-20 border-r border-b border-accent/20 m-4" />
-          
+
           <h3 className="text-3xl font-bold text-background mb-6 relative z-10 tracking-tight">Dedicated Industrial Support Since 1996</h3>
           <p className="text-background/60 max-w-3xl mx-auto text-[15px] leading-relaxed relative z-10 font-medium italic">
             "Our commitment goes beyond product delivery. We provide comprehensive technical consultation, system design, and specialized training for every brand we represent, ensuring your operations never miss a beat."
