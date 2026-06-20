@@ -19,7 +19,11 @@ export async function generateStaticParams() {
   return params;
 }
 
-export default async function SubcategoryPage({ params }: { params: Promise<{ category: string; subcategory: string }> }) {
+interface SubcategoryPageProps {
+  params: Promise<{ category: string; subcategory: string }>;
+}
+
+export default async function SubcategoryPage({ params }: SubcategoryPageProps) {
   const resolvedParams = await params;
   const category = getCategoryById(resolvedParams.category);
   const subcategory = getSubcategoryById(resolvedParams.category, resolvedParams.subcategory);

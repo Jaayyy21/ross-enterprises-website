@@ -13,7 +13,11 @@ export async function generateStaticParams() {
   }));
 }
 
-export default async function CategoryPage({ params }: { params: Promise<{ category: string }> }) {
+interface CategoryPageProps {
+  params: Promise<{ category: string }>;
+}
+
+export default async function CategoryPage({ params }: CategoryPageProps) {
   const resolvedParams = await params;
   const category = getCategoryById(resolvedParams.category);
 

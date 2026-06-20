@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { ImageWithFallback as Image } from '@/components/ui/image-with-fallback';
 import Link from "next/link";
 import { customers } from "@/lib/company-data";
-import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Companies We Serve",
