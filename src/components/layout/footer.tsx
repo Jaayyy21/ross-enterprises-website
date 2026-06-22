@@ -7,7 +7,7 @@ export function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-primary-dark text-background relative overflow-hidden bg-grain">
+    <footer className="bg-primary-dark text-background relative overflow-hidden">
       <div className="absolute top-0 left-0 right-0 h-px bg-white/5" />
 
       <div className="mx-auto max-w-[1600px] px-4 py-16 md:py-24 sm:px-6 lg:px-12 relative">
@@ -18,8 +18,7 @@ export function Footer() {
               alt="Ross Enterprises"
               width={160}
               height={64}
-              className="mb-10 h-12 w-auto brightness-0 invert opacity-90"
-
+              className="mb-10 h-12 w-auto opacity-90"
             />
             <p className="text-background/50 text-sm leading-relaxed max-w-sm mb-12 italic font-serif">
               "Providing precision engineering and integrated motion control solutions since 1996, anchored by heritage and driven by industrial excellence."
@@ -34,7 +33,7 @@ export function Footer() {
                 { href: "/about", label: "Our Heritage" },
                 { href: "/companies-we-represent", label: "Partners" },
                 { href: "/customers", label: "Our Customers" },
-                { href: "/categories/pneumatics", label: "Portfolio" },
+                { href: "/portfolio", label: "Portfolio" },
 
               ].map((link) => (
                 <li key={link.href}>
@@ -87,7 +86,7 @@ export function Footer() {
       </div>
 
       {/* Visual anchor */}
-      <div className="absolute -bottom-24 -right-24 w-96 h-96 bg-accent/5 rounded-full blur-[100px]" />
+      <div className="absolute -bottom-24 -right-24 w-96 h-96 bg-accent/10 rounded-full blur-[120px] pointer-events-none" />
     </footer>
   );
 }

@@ -2,9 +2,9 @@ import { notFound } from "next/navigation";
 import Link from "next/link";
 import { ImageWithFallback as Image } from "@/components/ui/image-with-fallback";
 import { SectionHeader } from "@/components/ui/section-header";
-import { Card, CardContent } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
-import { catalogData, getCategoryById } from "@/lib/catalog-data";
+import { Card } from "@/components/ui/card";
+import { catalogData, getCategoryById, categoryBrandMapping, getCatalogUrl } from "@/lib/catalog-data";
+import { brands } from "@/lib/company-data";
 import { ArrowRight } from "lucide-react";
 
 export async function generateStaticParams() {
@@ -25,6 +25,8 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
     notFound();
   }
 
+  const mappedBrands = categoryBrandMapping[category.id] || [];
+
   return (
     <div className="flex flex-col">
       {/* Category Hero */}
@@ -37,7 +39,6 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
             className="object-cover opacity-30"
             priority
             sizes="100vw"
-
           />
           <div className="absolute inset-0 bg-gradient-to-t from-primary via-primary/80 to-transparent" />
         </div>
@@ -49,39 +50,53 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
         </div>
       </section>
 
-      {/* Subcategories / Product Families Grid */}
+      {/* Brands Catalog Grid */}
       <section className="bg-surface py-20">
         <div className="mx-auto max-w-[1600px] px-4 sm:px-6 lg:px-12">
           <SectionHeader
-            title="Explore Product Families"
-            subtitle={`Browse our comprehensive range of ${category.name.toLowerCase()} solutions.`}
+            title="Brands We Represent"
+            subtitle={`Explore the official catalogs for our ${category.name.toLowerCase()} solutions.`}
           />
-          <div className="mt-12 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-            {category.subcategories.map((sub) => (
-              <Card key={sub.id} className="group flex flex-col overflow-hidden">
-                <Link href={`/categories/${category.id}/${sub.id}`} className="flex flex-1 flex-col">
-                  <div className="relative aspect-[4/3] bg-white">
-                    <Image
-                      src={sub.image}
-                      alt={sub.name}
-                      fill
-                      className="object-contain p-6 transition-transform duration-500 group-hover:scale-105"
-                      sizes="(max-width: 768px) 100vw, 33vw"
-
-                    />
-                  </div>
-                  <CardContent className="flex flex-1 flex-col p-6">
-                    <h3 className="text-xl font-semibold text-primary">{sub.name}</h3>
-                    <p className="mt-2 flex-1 text-sm text-muted">{sub.description}</p>
-                    <div className="mt-4 flex items-center text-sm font-semibold text-accent">
-                      View Products <ArrowRight className="ml-1 h-4 w-4 transition-transform group-hover:translate-x-1" />
-                    </div>
-                  </CardContent>
-                </Link>
-              </Card>
-            ))}
-          </div>
+          {mappedBrands.length > 0 ? (
+            <div className="mt-12 grid grid-cols-2 gap-6 sm:gap-8 md:grid-cols-3 lg:grid-cols-4">
+              {mappedBrands.map((brandId) => {
+                const brandData = brands.find(b => b.id === brandId);
+                if (!brandData) return null;
+                
+                const catalogUrl = getCatalogUrl(category.id, brandId);
+                
+                return (
+                  <Card key={brandId} className="group flex flex-col overflow-hidden bg-white rounded-none border border-border shadow-sm hover:shadow-md transition-shadow duration-300">
+                    <a href={catalogUrl} target="_blank" rel="noopener noreferrer" className="flex flex-1 flex-col items-center p-6 sm:p-8">
+                      <div className="relative h-16 sm:h-20 w-full mb-6 group-hover:scale-105 transition-transform duration-500">
+                        <Image
+                          src={brandData.logo}
+                          alt={brandData.name}
+                          fill
+                          className={`object-contain mix-blend-multiply ${
+                            ['parker', 'transair', 'origa', 'piab'].includes(brandData.id) ? 'scale-[1.6]' : ''
+                          }`}
+                          sizes="(max-width: 768px) 50vw, 25vw"
+                        />
+                      </div>
+                      <div className="flex flex-col items-center justify-end flex-1 mt-auto w-full border-t border-border/50 pt-4 sm:pt-6">
+                        <h3 className="text-[10px] sm:text-[11px] font-bold text-primary mb-3 uppercase tracking-[0.2em] text-center">{brandData.name}</h3>
+                        <div className="flex items-center text-[9px] sm:text-[10px] font-bold uppercase tracking-widest text-accent group-hover:text-primary transition-colors">
+                          View Catalog <ArrowRight className="ml-2 h-3 w-3 transition-transform group-hover:translate-x-1" />
+                        </div>
+                      </div>
+                    </a>
+                  </Card>
+                );
+              })}
+            </div>
+          ) : (
+            <div className="mt-12 text-center text-muted">
+              <p>Catalogs for this category are being updated.</p>
+            </div>
+          )}
         </div>
-      </section>    </div>
+      </section>
+    </div>
   );
 }

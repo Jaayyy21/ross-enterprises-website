@@ -21,7 +21,7 @@ export async function submitInquiryAction(prevState: any, formData: FormData) {
     if (!resendApiKey) {
       console.warn("RESEND_API_KEY is not set. Mocking email submission in development.");
       console.log("Mock Email Payload:", { name, company, email, phone, requirement, message });
-      
+
       // Simulate network delay
       await new Promise(resolve => setTimeout(resolve, 1500));
       return { success: true };
@@ -33,7 +33,7 @@ export async function submitInquiryAction(prevState: any, formData: FormData) {
       // Resend requires a verified domain to send FROM. We use a default testing domain if unverified, 
       // or the user's domain. Usually onboarding@resend.dev works for testing if delivering to the registered email.
       from: "Ross Enterprises Web <onboarding@resend.dev>",
-      to: "rossenterprises1996@gmail.com",
+      to: "jaygame21patel@gmail.com",
       replyTo: email,
       subject: `New Technical Brief: ${requirement} from ${company}`,
       text: `

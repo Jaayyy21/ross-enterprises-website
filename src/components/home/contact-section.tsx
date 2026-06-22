@@ -96,9 +96,19 @@ export function ContactSection() {
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
             />
+            
+            <a 
+              href={contact.maps}
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="absolute bottom-6 right-6 z-10 bg-primary-dark text-white px-6 py-3 text-xs font-bold uppercase tracking-widest hover:bg-accent transition-colors shadow-lg flex items-center gap-2"
+            >
+              View on Google Maps <ArrowUpRight className="h-4 w-4" />
+            </a>
+
             {/* Visual anchor */}
-            <div className="absolute top-0 left-0 w-24 h-24 border-l border-t border-accent/30 m-6" />
-            <div className="absolute bottom-0 right-0 w-24 h-24 border-r border-b border-accent/30 m-6" />
+            <div className="absolute top-0 left-0 w-24 h-24 border-l border-t border-accent/30 m-6 pointer-events-none" />
+            <div className="absolute bottom-0 right-0 w-24 h-24 border-r border-b border-accent/30 m-6 pointer-events-none" />
           </motion.div>
         </div>
       </div>

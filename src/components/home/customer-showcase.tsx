@@ -7,9 +7,6 @@ import { customers } from "@/lib/company-data";
 
 export function CustomerShowcase() {
 
-  // Duplicate customers for seamless loop
-  const loopCustomers = [...customers, ...customers];
-
   return (
     <section className="bg-background py-16 md:py-16 md:py-24 overflow-hidden border-t border-taupe/10">
       <div className="mx-auto max-w-[1600px] px-4 sm:px-6 lg:px-12 mb-16">
@@ -20,40 +17,35 @@ export function CustomerShowcase() {
         />
       </div>
 
-      <div className="relative">
-        <div className="flex overflow-hidden w-full bg-texture py-6 border-y border-taupe/5">
-          <div className="flex gap-12 sm:gap-20 items-center w-max animate-marquee">
-            {loopCustomers.map((customer, i) => (
-              <div
-                key={`${customer.id}-${i}`}
-                className="flex flex-col items-center gap-4 group shrink-0"
-              >
-                <div className="relative h-12 w-24 sm:h-16 sm:w-32 transition-transform duration-500 group-hover:scale-105">
-                  <Image
-                    src={customer.logo}
-                    alt={customer.name}
-                    fill
-                    className="object-contain"
-                    sizes="(max-width: 640px) 128px, 160px"
-                  />
-                </div>
-                <span className="text-[10px] font-bold uppercase tracking-widest text-foreground/30 group-hover:text-accent transition-colors duration-500">
-                  {customer.name}
-                </span>
+      <div className="mx-auto max-w-[1200px] px-4 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-8 sm:gap-12 items-center justify-items-center">
+          {customers.map((customer, i) => (
+            <div
+              key={`${customer.id}-${i}`}
+              className="flex flex-col items-center gap-4 group w-full p-6 bg-white border border-border shadow-sm hover:shadow-md transition-shadow duration-300 rounded-none"
+            >
+              <div className="relative h-12 w-full sm:h-16 transition-transform duration-500 group-hover:scale-105">
+                <Image
+                  src={customer.logo}
+                  alt={customer.name}
+                  fill
+                  className={`object-contain mix-blend-multiply ${
+                    ['schneider-electric', 'zydus', 'raychem-rpg', 'everest-spices', 'banco', 'elecon', 'real-namkeen'].includes(customer.id)
+                      ? 'scale-[1.4]'
+                      : ''
+                  }`}
+                  sizes="(max-width: 640px) 128px, 160px"
+                />
               </div>
-            ))}
-          </div>
+            </div>
+          ))}
         </div>
-
-        {/* Gradient overlays for smooth fade effect */}
-        <div className="absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-background to-transparent z-10 pointer-events-none" />
-        <div className="absolute inset-y-0 right-0 w-32 bg-gradient-to-l from-background to-transparent z-10 pointer-events-none" />
       </div>
 
       <div className="mx-auto max-w-4xl px-4 text-center mt-20">
         <p className="text-sm text-foreground/40 font-medium leading-relaxed italic">
-          "Our commitment to quality and service has allowed us to build lasting relationships 
-          with India's most respected industrial organizations since 1996."
+          &quot;Our commitment to quality and service has allowed us to build lasting relationships 
+          with India&apos;s most respected industrial organizations since 1996.&quot;
         </p>
       </div>
     </section>

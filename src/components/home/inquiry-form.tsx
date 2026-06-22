@@ -30,10 +30,10 @@ export function InquiryForm() {
   }
 
   return (
-    <section id="inquiry" className="py-16 md:py-16 md:py-24 bg-primary-dark bg-grain relative overflow-hidden">
+    <section id="inquiry" className="py-16 md:py-16 md:py-24 bg-primary-dark relative overflow-hidden">
       {/* Decorative gradients */}
-      <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-accent/5 rounded-full blur-[150px] pointer-events-none" />
-      <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-taupe/10 rounded-full blur-[120px] pointer-events-none" />
+      <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-accent/10 rounded-full blur-[150px] pointer-events-none" />
+      <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-white/5 rounded-full blur-[120px] pointer-events-none" />
 
       <div className="mx-auto max-w-[1600px] px-4 sm:px-6 lg:px-12 relative">
         <div className="grid gap-16 lg:grid-cols-2 lg:items-start">
@@ -82,9 +82,9 @@ export function InquiryForm() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
-            className="bg-background p-6 sm:p-12 lg:p-16 rounded-sm shadow-[0_50px_100px_rgba(0,0,0,0.4)] relative overflow-hidden border border-taupe/10"
+            className="bg-background p-6 sm:p-12 lg:p-16 rounded-none shadow-[0_50px_100px_rgba(0,0,0,0.2)] relative overflow-hidden border border-border"
           >
-            <div className="absolute top-0 right-0 w-32 h-32 border-r border-t border-accent/20 translate-x-16 -translate-y-16" />
+            <div className="absolute top-0 right-0 w-32 h-32 border-r border-t border-accent/30 translate-x-16 -translate-y-16" />
 
             {submitted ? (
               <div className="py-16 md:py-24 text-center">
@@ -114,37 +114,37 @@ export function InquiryForm() {
                 )}
                 <div className="grid gap-10 sm:grid-cols-2">
                   <div className="space-y-4">
-                    <label className="text-[10px] font-bold uppercase tracking-[0.3em] text-foreground/30 ml-1">Representative Name</label>
-                    <Input id="name" name="name" required placeholder="Full Name" className="h-14 border-taupe/20 bg-beige/10 rounded-sm focus:bg-background focus:border-accent transition-all placeholder:text-foreground/20" />
+                    <label className="text-[10px] font-bold uppercase tracking-[0.3em] text-primary ml-1">Representative Name</label>
+                    <Input id="name" name="name" required placeholder="Full Name" className="h-14 border-border bg-surface rounded-none focus:bg-background focus:border-accent focus:ring-1 focus:ring-accent transition-all placeholder:text-muted" />
                   </div>
                   <div className="space-y-4">
-                    <label className="text-[10px] font-bold uppercase tracking-[0.3em] text-foreground/30 ml-1">Organization</label>
-                    <Input id="company" name="company" required placeholder="Company Name" className="h-14 border-taupe/20 bg-beige/10 rounded-sm focus:bg-background focus:border-accent transition-all placeholder:text-foreground/20" />
+                    <label className="text-[10px] font-bold uppercase tracking-[0.3em] text-primary ml-1">Organization</label>
+                    <Input id="company" name="company" required placeholder="Company Name" className="h-14 border-border bg-surface rounded-none focus:bg-background focus:border-accent focus:ring-1 focus:ring-accent transition-all placeholder:text-muted" />
                   </div>
                 </div>
 
                 <div className="grid gap-10 sm:grid-cols-2">
                   <div className="space-y-4">
-                    <label className="text-[10px] font-bold uppercase tracking-[0.3em] text-foreground/30 ml-1">Direct Email</label>
-                    <Input id="email" name="email" type="email" required placeholder="email@organization.com" className="h-14 border-taupe/20 bg-beige/10 rounded-sm focus:bg-background focus:border-accent transition-all placeholder:text-foreground/20" />
+                    <label className="text-[10px] font-bold uppercase tracking-[0.3em] text-primary ml-1">Direct Email</label>
+                    <Input id="email" name="email" type="email" required placeholder="email@organization.com" className="h-14 border-border bg-surface rounded-none focus:bg-background focus:border-accent focus:ring-1 focus:ring-accent transition-all placeholder:text-muted" />
                   </div>
                   <div className="space-y-4">
-                    <label className="text-[10px] font-bold uppercase tracking-[0.3em] text-foreground/30 ml-1">Contact Line</label>
-                    <Input id="phone" name="phone" type="tel" required placeholder="+91 XXXX XXXXXX" className="h-14 border-taupe/20 bg-beige/10 rounded-sm focus:bg-background focus:border-accent transition-all placeholder:text-foreground/20" />
+                    <label className="text-[10px] font-bold uppercase tracking-[0.3em] text-primary ml-1">Contact Line</label>
+                    <Input id="phone" name="phone" type="tel" required placeholder="+91 XXXX XXXXXX" className="h-14 border-border bg-surface rounded-none focus:bg-background focus:border-accent focus:ring-1 focus:ring-accent transition-all placeholder:text-muted" />
                   </div>
                 </div>
 
                 <div className="space-y-4">
-                  <label className="text-[10px] font-bold uppercase tracking-[0.3em] text-foreground/30 ml-1">Technical Requirement</label>
-                  <Input id="requirement" name="requirement" required placeholder="e.g. High-Pressure Hydraulic Systems" className="h-14 border-taupe/20 bg-beige/10 rounded-sm focus:bg-background focus:border-accent transition-all placeholder:text-foreground/20" />
+                  <label className="text-[10px] font-bold uppercase tracking-[0.3em] text-primary ml-1">Technical Requirement</label>
+                  <Input id="requirement" name="requirement" required placeholder="e.g. High-Pressure Hydraulic Systems" className="h-14 border-border bg-surface rounded-none focus:bg-background focus:border-accent focus:ring-1 focus:ring-accent transition-all placeholder:text-muted" />
                 </div>
 
                 <div className="space-y-4">
-                  <label className="text-[10px] font-bold uppercase tracking-[0.3em] text-foreground/30 ml-1">Project Brief / Specifications</label>
-                  <Textarea id="message" name="message" placeholder="Include technical specifications, quantities, or specific brand preferences..." rows={4} className="border-taupe/20 bg-beige/10 rounded-sm focus:bg-background focus:border-accent transition-all resize-none p-6 placeholder:text-foreground/20" />
+                  <label className="text-[10px] font-bold uppercase tracking-[0.3em] text-primary ml-1">Project Brief / Specifications</label>
+                  <Textarea id="message" name="message" placeholder="Include technical specifications, quantities, or specific brand preferences..." rows={4} className="border-border bg-surface rounded-none focus:bg-background focus:border-accent focus:ring-1 focus:ring-accent transition-all resize-none p-6 placeholder:text-muted" />
                 </div>
 
-                <Button disabled={isPending} type="submit" size="lg" className="w-full h-16 bg-primary-dark hover:bg-primary text-background rounded-sm shadow-2xl transition-all duration-500 active:scale-[0.98] uppercase tracking-[0.2em] text-[11px] font-bold">
+                <Button disabled={isPending} type="submit" size="lg" className="w-full h-16 bg-accent hover:bg-accent-dark text-white rounded-none shadow-md transition-all duration-500 active:scale-[0.98] uppercase tracking-[0.2em] text-[11px] font-bold">
                   {isPending ? "Submitting..." : "Submit Technical Brief"}
                   {!isPending && <ArrowRight className="h-4 w-4 ml-4" />}
                 </Button>

@@ -1,17 +1,18 @@
 @import "tailwindcss";
 
 :root {
-  --background: #FDF6E8; /* Primary Cream */
-  --foreground: #1F1A17; /* Text */
-  --primary: #5A3A22;    /* Walnut Brown */
-  --primary-dark: #38240D; /* Dark Chocolate */
-  --accent: #B87932;     /* Muted Bronze */
-  --beige: #E9DDC8;      /* Warm Beige */
-  --taupe: #C9B59A;      /* Soft Taupe */
-  --sand: #DCC9AB;       /* Sand */
-  --muted: #4A4038;      /* Darkened for contrast */
-  --border: #DCC9AB;
-  --surface: #FDF6E8;
+  --background: #FFFFFF;
+  --foreground: #4B5563;
+  --primary: #1F2937;
+  --primary-dark: #1F2937;
+  --accent: #005EB8;
+  --accent-dark: #003B75;
+  --beige: #F5F7FA;
+  --taupe: #D1D5DB;
+  --sand: #D1D5DB;
+  --muted: #6B7280;
+  --border: #D1D5DB;
+  --surface: #F5F7FA;
 }
 
 @theme inline {
@@ -20,6 +21,7 @@
   --color-primary: var(--primary);
   --color-primary-dark: var(--primary-dark);
   --color-accent: var(--accent);
+  --color-accent-dark: var(--accent-dark);
   --color-beige: var(--beige);
   --color-taupe: var(--taupe);
   --color-sand: var(--sand);
@@ -74,11 +76,7 @@ body {
 
 .bg-texture::before {
   content: "";
-  position: absolute;
-  inset: 0;
-  background-image: url("https://www.transparenttextures.com/patterns/carbon-fibre.png");
-  opacity: 0.02;
-  pointer-events: none;
+  display: none;
 }
 
 .bg-grain {
@@ -87,11 +85,7 @@ body {
 
 .bg-grain::before {
   content: "";
-  position: absolute;
-  inset: 0;
-  background-image: url("https://www.transparenttextures.com/patterns/natural-paper.png");
-  opacity: 0.04;
-  pointer-events: none;
+  display: none;
 }
 
 /* Marquee Animation */

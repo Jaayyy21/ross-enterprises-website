@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { ImageWithFallback as Image } from '@/components/ui/image-with-fallback';
 import Link from "next/link";
 import { brands, brandProductLines } from "@/lib/company-data";
-import { ArrowUpRight, Globe, CheckCircle2 } from "lucide-react";
+import { CheckCircle2, ArrowRight } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "Companies We Represent",
@@ -38,42 +38,36 @@ export default function CompaniesPage() {
         <div className="mx-auto max-w-[1600px] px-4 sm:px-6 lg:px-12">
           <div className="grid gap-12 lg:gap-20">
             {brands.map((brand) => (
-              <div
+              <Link
                 key={brand.id}
-                className="group relative grid lg:grid-cols-12 gap-10 lg:gap-20 p-10 lg:p-16 rounded-sm bg-white border border-taupe/20 shadow-md shadow-taupe/5 transition-all duration-500 hover:shadow-lg hover:shadow-taupe/20 hover:-translate-y-1 hover:border-accent/40"
+                href={`/companies-we-represent/${brand.id}`}
+                className="group relative grid lg:grid-cols-12 gap-10 lg:gap-20 p-10 lg:p-16 rounded-sm bg-white border border-taupe/20 shadow-md shadow-taupe/5 transition-all duration-300 hover:shadow-lg hover:shadow-taupe/20 hover:-translate-y-0.5 hover:border-accent/50 cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2"
               >
                 {/* Logo & Basic Info */}
                 <div className="lg:col-span-4 flex flex-col">
-                  <Link href={`/companies-we-represent/${brand.id}`} className="relative h-24 w-full mb-10 transition-all duration-700 group-hover:scale-105">
+                  <div className="relative h-24 w-full mb-10 transition-transform duration-500 group-hover:scale-[1.03]">
                     <Image
                       src={brand.logo}
                       alt={brand.name}
                       fill
                       className={`object-contain object-left mix-blend-multiply ${
-                        brand.id === 'parker' ? 'scale-[1.4] origin-left' : 
+                        brand.id === 'parker' ? 'scale-[1.4] origin-left' :
                         brand.id === 'transair' ? 'scale-[1.5] origin-left' : ''
                       }`}
-
                     />
-                  </Link>
-                  <Link href={`/companies-we-represent/${brand.id}`}>
-                    <h2 className="text-3xl font-bold text-primary-dark mb-2 tracking-tight group-hover:text-accent transition-colors">
-                      {brand.name}
-                    </h2>
-                  </Link>
+                  </div>
+                  <h2 className="text-3xl font-bold text-primary-dark mb-2 tracking-tight transition-colors duration-300 group-hover:text-accent">
+                    {brand.name}
+                  </h2>
                   <p className="text-sm font-bold text-accent uppercase tracking-widest mb-8">
                     {brand.tagline}
                   </p>
-                  <a
-                    href={brand.website}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-3 text-[10px] font-bold uppercase tracking-[0.3em] text-primary-dark/40 hover:text-accent transition-colors mt-auto group/link"
-                  >
-                    <Globe className="h-4 w-4" />
-                    Official Website
-                    <ArrowUpRight className="h-3 w-3 translate-y-0.5 group-hover/link:-translate-y-0 group-hover/link:translate-x-0.5 transition-transform" />
-                  </a>
+
+                  {/* View Details CTA */}
+                  <div className="mt-auto inline-flex items-center gap-2 text-[11px] font-bold uppercase tracking-[0.25em] text-primary-dark/40 transition-colors duration-300 group-hover:text-accent">
+                    View Details
+                    <ArrowRight className="h-3.5 w-3.5 transition-transform duration-300 group-hover:translate-x-1" />
+                  </div>
                 </div>
 
                 {/* Description & Product Lines */}
@@ -99,7 +93,7 @@ export default function CompaniesPage() {
                     </div>
                   )}
                 </div>
-              </div>
+              </Link>
             ))}
           </div>
         </div>

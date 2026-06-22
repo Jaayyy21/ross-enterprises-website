@@ -10,7 +10,7 @@ import { catalogData } from "@/lib/catalog-data";
 
 export function ProductCategories() {
   return (
-    <section className="bg-beige/30 bg-grain py-16 md:py-16 md:py-24 overflow-hidden relative">
+    <section className="bg-surface py-16 md:py-24 overflow-hidden relative border-t border-border">
       <div className="relative mx-auto max-w-[1600px] px-4 sm:px-6 lg:px-12 mb-16 flex items-end justify-between">
         <SectionHeader
           title="Product Portfolio"
@@ -31,9 +31,9 @@ export function ProductCategories() {
               >
                 <Link
                   href={`/categories/${category.id}`}
-                  className="group flex flex-col h-full bg-background border border-taupe/20 rounded-sm overflow-hidden shadow-sm transition-all duration-500 hover:shadow-xl hover:border-accent/30"
+                  className="group flex flex-col h-full bg-background border border-border rounded-none overflow-hidden shadow-sm transition-all duration-500 hover:shadow-lg hover:border-accent"
                 >
-                  <div className="relative aspect-[16/10] overflow-hidden bg-beige/10">
+                  <div className="relative aspect-[16/10] overflow-hidden bg-white">
                     <Image
                       src={category.image}
                       alt={category.name}
@@ -41,23 +41,18 @@ export function ProductCategories() {
                       className="object-cover transition-transform duration-1000 group-hover:scale-105"
                       sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-primary-dark/80 via-primary-dark/20 to-transparent opacity-60 group-hover:opacity-80 transition-opacity duration-700" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-primary/90 via-primary/20 to-transparent opacity-70 group-hover:opacity-90 transition-opacity duration-700" />
                     <div className="absolute bottom-6 left-6 right-6 flex justify-between items-end">
                       <h3 className="text-2xl font-bold text-white tracking-tight drop-shadow-md">
                         {category.name}
                       </h3>
-                      <div className="h-10 w-10 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center border border-white/30 group-hover:bg-accent group-hover:border-accent transition-all duration-500">
+                      <div className="h-10 w-10 bg-primary flex items-center justify-center group-hover:bg-accent transition-colors duration-500">
                         <ArrowUpRight className="h-5 w-5 text-white" />
                       </div>
                     </div>
                   </div>
 
                   <div className="p-8 flex flex-col flex-1 bg-background">
-                    <div className="mb-4">
-                      <span className="text-[10px] font-bold text-accent uppercase tracking-widest bg-accent/5 px-2 py-1 rounded-sm">
-                        {category.subcategories.length} Product Families
-                      </span>
-                    </div>
                     <p className="text-sm leading-relaxed text-foreground/70 mb-6 flex-1">
                       {category.description}
                     </p>
@@ -72,8 +67,7 @@ export function ProductCategories() {
       </div>
 
       {/* Decorative anchors */}
-      <div className="absolute top-0 left-0 w-32 h-32 border-l border-t border-taupe/10 -translate-x-16 -translate-y-16" />
-      <div className="absolute bottom-0 right-0 w-64 h-64 border-r border-b border-taupe/5 translate-x-32 translate-y-32 rounded-full" />
+      <div className="absolute top-0 left-0 w-32 h-32 border-l border-t border-border -translate-x-16 -translate-y-16" />
     </section>
   );
 }

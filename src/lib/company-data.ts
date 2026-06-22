@@ -8,7 +8,7 @@ export const company = {
   subheadline:
     "Trusted supplier of pneumatic, hydraulic, instrumentation and automation products serving industries across Gujarat and India.",
   intro:
-    "We would like to introduce ourselves as one of the foremost representative of companies like PARKER, LEGRIS, TRANSAIR, RECTUS, NITTO, ORIGA, PIAB, PNEUMAX, LUTHRA, CMATIC, BAUMER, UFLOW etc. which are into manufacturing of Pneumatics, Hydraulics, Instrumentation, Filter, Seals, Hoses & other products.",
+    "We would like to introduce ourselves as one of the foremost representative of companies like PARKER, LEGRIS, TRANSAIR, RECTUS, AIRTAC, ORIGA, PIAB, PNEUMAX, LUTHRA, CMATIC, BAUMER, UFLOW etc. which are into manufacturing of Pneumatics, Hydraulics, Instrumentation, Filter, Seals, Hoses & other products.",
   representation:
     "We are representing these companies for the past 30 years.",
   expertise:
@@ -68,7 +68,7 @@ export const brands: Brand[] = [
       "Push-in fittings, function fittings, technical tubing, industrial blowguns, valves, air service units, and adaptors for compressed air and industrial fluids.",
     href: "/brands/legris",
     logo: "/assets/logos/partners/legris.png",
-    website: "https://www.parker.com",
+    website: "https://www.legris-pneumatics.com/",
   },
   {
     id: "transair",
@@ -88,17 +88,17 @@ export const brands: Brand[] = [
       "Parker Quick Coupling Division Europe — complete quick connect coupling systems for low, medium and high pressure applications.",
     href: "/brands/rectus",
     logo: "/assets/logos/partners/rectus.png",
-    website: "https://www.parker.com",
+    website: "https://www.parker.com/content/dam/Parker-com/Literature/LPCE/New-PDFs/New-pdf-QCDE-catalogue/CAT_3800-PNEU_UK_2017.pdf",
   },
   {
-    id: "nitto",
-    name: "Nitto Kohki",
-    tagline: "Industrial Couplings & Fluid Connectors",
+    id: "airtac",
+    name: "Airtac",
+    tagline: "Pneumatic Control Components",
     description:
-      "The widest variety of quick connects for manufacturing fluids — air, water, hydraulic and test media — of the highest quality.",
-    href: "/brands/nitto",
-    logo: "/assets/logos/partners/nittokohki.png",
-    website: "https://www.nitto-kohki.co.jp",
+      "Global manufacturer of pneumatic components, including valves, cylinders, and air preparation units.",
+    href: "/brands/airtac",
+    logo: "/assets/logos/partners/airtac.png",
+    website: "https://us-en.airtac.com/",
   },
   {
     id: "origa",
@@ -108,7 +108,7 @@ export const brands: Brand[] = [
       "Pneumatic and rodless cylinders with proven reliability, maintenance-free operation, and resistance to corrosion — from foundry to clean room.",
     href: "/brands/origa",
     logo: "/assets/logos/partners/origa.png",
-    website: "https://www.parker.com",
+    website: "https://www.parker.com/content/dam/Parker-com/Literature/Pneumatics-Division-Europe/PDE-Documents/Cylinders/Parker_Pneumatic_Origa_System_Plus_No1_Catalogue---P-A5P041GB.pdf",
   },
   {
     id: "piab",
@@ -205,11 +205,11 @@ export const brandProductLines: Record<string, string[]> = {
     "Coded systems and measuring systems",
     "Accessories for pneumatic and fluid handling",
   ],
-  nitto: [
-    "Quick connects for air, water, hydraulic and test media",
-    "Helium, water, fuel, glycol test applications",
-    "Widest variety available on the world market",
-    "Made-to-order capability for demanding applications",
+  airtac: [
+    "Pneumatic Cylinders & Actuators",
+    "Directional Control Valves",
+    "Air Preparation Units (FRL)",
+    "Pneumatic Fittings and Tubing",
   ],
   origa: [
     "Pneumatic and rodless cylinders — OSP-P series",
@@ -620,5 +620,45 @@ export const customers: Customer[] = [
     products: ["Pneumatic Cylinders", "Lubricators"],
     solutions: ["Textile Machinery Automation"],
     relationship: "Long-standing vendor for textile mills."
+  },
+  {
+    id: "voltas",
+    name: "Voltas",
+    logo: "/assets/logos/customers/voltas.png",
+    industry: "Engineering & Cooling",
+    description: "India's largest air conditioning company and a leading engineering solutions provider.",
+    products: ["Pneumatic Components", "Fluid Control"],
+    solutions: ["Cooling Systems Automation"],
+    relationship: "Trusted supplier for engineering components."
+  },
+  {
+    id: "plasser",
+    name: "Plasser India",
+    logo: "/assets/logos/customers/plasser.png",
+    industry: "Railway Manufacturing",
+    description: "Manufacturer of high-performance track maintenance machines.",
+    products: ["Hydraulic Systems", "Pneumatic Valves"],
+    solutions: ["Track Maintenance Automation"],
+    relationship: "Partner for heavy-duty railway machinery."
+  },
+  {
+    id: "schaeffler",
+    name: "Schaeffler",
+    logo: "/assets/logos/customers/schaeffler.png",
+    industry: "Automotive & Industrial",
+    description: "Global automotive and industrial supplier of high-precision components and systems.",
+    products: ["Pneumatic Actuators", "Sensors"],
+    solutions: ["Industrial Automation"],
+    relationship: "Supplier for precision manufacturing."
+  },
+  {
+    id: "idmc",
+    name: "IDMC",
+    logo: "/assets/logos/customers/idmc.png",
+    industry: "Dairy & Food Equipment",
+    description: "Leading manufacturer of equipment for dairy, pharmaceuticals, and beverages.",
+    products: ["Hygienic Valves", "Stainless Steel Fittings"],
+    solutions: ["Dairy Processing Automation"],
+    relationship: "Vendor for food-safe and hygienic fluid control."
   }
 ];
