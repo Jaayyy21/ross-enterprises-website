@@ -35,24 +35,11 @@ export async function submitInquiryAction(prevState: FormState, formData: FormDa
       botField: formData.get("bot_field") || "",
     };
 
-    const logEntry = `
-=========================================
-RUNTIME INVESTIGATION TRACE:
-1. cfTurnstileResponse received in rawData: ${rawData.cfTurnstileResponse ? "YES" : "NO"} (Length: ${rawData.cfTurnstileResponse.length})
-2. Exact Token Value: ${rawData.cfTurnstileResponse.substring(0, 15)}...
-3. Field Name extracted: "cf-turnstile-response"
-=========================================
-`;
-    try { fs.appendFileSync("turnstile_debug.log", logEntry); } catch(e){}
-
     const validatedFields = inquirySchema.safeParse(rawData);
 
     if (!validatedFields.success) {
       const fieldErrors = validatedFields.error.flatten().fieldErrors;
       const firstError = Object.values(fieldErrors).flat()[0];
-
-      const logFail = `[FAIL] Zod rejected request before siteverify.\nZod Errors: ${JSON.stringify(fieldErrors)}\n`;
-      try { fs.appendFileSync("turnstile_debug.log", logFail); } catch(e){}
 
       return { 
         success: false, 
@@ -71,12 +58,6 @@ RUNTIME INVESTIGATION TRACE:
 
     // Cloudflare Turnstile Verification
     const turnstileSecret = process.env.TURNSTILE_SECRET_KEY;
-    
-    const logServer = `
-[CHECK] Attempting siteverify fetch.
-TURNSTILE_SECRET_KEY loaded: ${!!turnstileSecret}
-`;
-    try { fs.appendFileSync("turnstile_debug.log", logServer); } catch(e){}
 
     if (turnstileSecret) {
       try {
@@ -89,9 +70,6 @@ TURNSTILE_SECRET_KEY loaded: ${!!turnstileSecret}
         });
 
         const verifyData = await verifyResponse.json();
-        
-        const logRes = `[RESPONSE] Cloudflare siteverify: ${JSON.stringify(verifyData)}\n`;
-        try { fs.appendFileSync("turnstile_debug.log", logRes); } catch(e){}
 
         if (!verifyData.success) {
           return { success: false, error: "Security verification failed or expired. Please try submitting again." };

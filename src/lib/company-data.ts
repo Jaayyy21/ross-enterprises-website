@@ -108,7 +108,7 @@ export const brands: Brand[] = [
       "Pneumatic and rodless cylinders with proven reliability, maintenance-free operation, and resistance to corrosion — from foundry to clean room.",
     href: "/brands/origa",
     logo: "/assets/logos/partners/origa.png",
-    website: "https://www.parker.com/content/dam/Parker-com/Literature/Pneumatics-Division-Europe/PDE-Documents/Cylinders/Parker_Pneumatic_Origa_System_Plus_No1_Catalogue---P-A5P041GB.pdf",
+    website: "https://www.parker.com/content/dam/Parker-com/Literature/empd---electric-motion-and-pneumatic-division-europe/literature/pn/Parker_Pneumatique_Concis_PNDE-3800FR.pdf",
   },
   {
     id: "piab",
