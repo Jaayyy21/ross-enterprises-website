@@ -30,8 +30,9 @@ export function Header() {
   }, []);
 
   return (
-    <header className={cn(
-      "sticky top-0 z-50 transition-all duration-500",
+    <>
+      <header className={cn(
+        "sticky top-0 z-50 transition-all duration-500",
       scrolled 
         ? "bg-background/95 backdrop-blur-md py-3 shadow-sm border-b border-border" 
         : "bg-background py-5 border-b border-border"
@@ -98,6 +99,7 @@ export function Header() {
           {mobileOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
         </button>
       </div>
+      </header>
 
       {/* Mobile Menu */}
       <div className={cn(
@@ -129,6 +131,6 @@ export function Header() {
           </div>
         </nav>
       </div>
-    </header>
+    </>
   );
 }

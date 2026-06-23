@@ -78,7 +78,7 @@ export function Footer() {
           </div>
 
           <div className="flex gap-12">
-            <Link href="#" className="text-[10px] font-bold uppercase tracking-[0.3em] text-background/20 hover:text-accent transition-colors">Privacy</Link>
+            <Link href="/privacy-policy" className="text-[10px] font-bold uppercase tracking-[0.3em] text-background/20 hover:text-accent transition-colors">Privacy</Link>
             <Link href="#" className="text-[10px] font-bold uppercase tracking-[0.3em] text-background/20 hover:text-accent transition-colors">Terms</Link>
             <Link href="#" className="text-[10px] font-bold uppercase tracking-[0.3em] text-background/20 hover:text-accent transition-colors">Vadodara, India</Link>
           </div>

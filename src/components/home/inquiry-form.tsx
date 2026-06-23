@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useTransition } from "react";
+import { useState, useTransition, useRef } from "react";
 import { motion } from "framer-motion";
 import { Send, ArrowRight, ShieldCheck, Headphones, AlertCircle } from "lucide-react";
 import { SectionHeader } from "@/components/ui/section-header";
@@ -8,25 +8,47 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { submitInquiryAction } from "@/app/actions/submit-inquiry";
+import { Turnstile, TurnstileInstance } from "@marsidev/react-turnstile";
 
 export function InquiryForm() {
   const [submitted, setSubmitted] = useState(false);
   const [error, setError] = useState("");
   const [isPending, startTransition] = useTransition();
+  const turnstileRef = useRef<TurnstileInstance>(null);
+  const formDataRef = useRef<FormData | null>(null);
+
+  function submitForm(formData: FormData) {
+    startTransition(async () => {
+      const result = await submitInquiryAction(null, formData);
+      if (result?.success) {
+        setSubmitted(true);
+      } else {
+        setError(result?.error || "An unexpected error occurred.");
+        turnstileRef.current?.reset();
+      }
+    });
+  }
 
   function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
     setError("");
     const formData = new FormData(e.currentTarget);
     
-    startTransition(async () => {
-      const result = await submitInquiryAction(null, formData);
-      if (result.success) {
-        setSubmitted(true);
-      } else {
-        setError(result.error || "An unexpected error occurred.");
-      }
-    });
+    if (process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY) {
+      // Trigger invisible turnstile execution. onSuccess will handle the actual submission.
+      formDataRef.current = formData;
+      turnstileRef.current?.execute();
+    } else {
+      // Fallback if no sitekey is configured
+      submitForm(formData);
+    }
+  }
+
+  function handleTurnstileSuccess(token: string) {
+    if (formDataRef.current) {
+      formDataRef.current.set("cf-turnstile-response", token);
+      submitForm(formDataRef.current);
+    }
   }
 
   return (
@@ -143,6 +165,20 @@ export function InquiryForm() {
                   <label htmlFor="message" className="text-[10px] font-bold uppercase tracking-[0.3em] text-primary ml-1">Project Brief / Specifications</label>
                   <Textarea id="message" name="message" placeholder="Include technical specifications, quantities, or specific brand preferences..." rows={4} className="border-border bg-surface rounded-none focus:bg-background focus:border-accent focus:ring-1 focus:ring-accent transition-all resize-none p-6 placeholder:text-muted" />
                 </div>
+
+                {/* Honeypot field (hidden from real users, filled by dumb bots) */}
+                <input type="text" name="bot_field" className="hidden absolute opacity-0 -z-50" tabIndex={-1} autoComplete="off" />
+
+                {/* Cloudflare Turnstile */}
+                {process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY && (
+                  <Turnstile 
+                    ref={turnstileRef}
+                    siteKey={process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY} 
+                    options={{ size: "invisible", execution: "execute" }}
+                    onSuccess={handleTurnstileSuccess}
+                    onError={() => setError("Security widget failed to initialize. Please try again.")}
+                  />
+                )}
 
                 <Button disabled={isPending} type="submit" size="lg" className="w-full h-16 bg-accent hover:bg-accent-dark text-white rounded-none shadow-md transition-all duration-500 active:scale-[0.98] uppercase tracking-[0.2em] text-[11px] font-bold">
                   {isPending ? "Submitting..." : "Submit Technical Brief"}

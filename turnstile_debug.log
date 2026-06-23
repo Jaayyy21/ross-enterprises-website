@@ -1,0 +1,40 @@
+--- ZOD FAIL ---
+Time: 2026-06-23T10:58:58.867Z
+Token length: 0
+Token: 
+Error: {"cfTurnstileResponse":["Security verification required. Please try submitting again."]}
+
+--- ZOD FAIL ---
+Time: 2026-06-23T11:09:07.279Z
+Token length: 0
+Token: 
+Error: {"cfTurnstileResponse":["Security verification required. Please try submitting again."]}
+
+--- ZOD FAIL ---
+Time: 2026-06-23T11:10:27.106Z
+Token length: 0
+Token: 
+Error: {"cfTurnstileResponse":["Security verification required. Please try submitting again."]}
+
+
+=========================================
+RUNTIME INVESTIGATION TRACE:
+1. cfTurnstileResponse received in rawData: YES (Length: 773)
+2. Exact Token Value: 1.zuK8xGNxvT93I...
+3. Field Name extracted: "cf-turnstile-response"
+=========================================
+
+[CHECK] Attempting siteverify fetch.
+TURNSTILE_SECRET_KEY loaded: true
+[RESPONSE] Cloudflare siteverify: {"action":"","cdata":"","challenge_ts":"2026-06-23T11:30:43.000Z","error-codes":[],"hostname":"localhost","metadata":{"interactive":false},"success":true}
+
+=========================================
+RUNTIME INVESTIGATION TRACE:
+1. cfTurnstileResponse received in rawData: YES (Length: 773)
+2. Exact Token Value: 1.VSovNbG-yhjBU...
+3. Field Name extracted: "cf-turnstile-response"
+=========================================
+
+[CHECK] Attempting siteverify fetch.
+TURNSTILE_SECRET_KEY loaded: true
+[RESPONSE] Cloudflare siteverify: {"action":"","cdata":"","challenge_ts":"2026-06-23T11:31:08.000Z","error-codes":[],"hostname":"localhost","metadata":{"interactive":false},"success":true}

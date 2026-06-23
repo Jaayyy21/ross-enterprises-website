@@ -1,28 +1,117 @@
 "use server";
 
 import { Resend } from "resend";
+import { z } from "zod";
+import * as fs from "fs";
 
-export async function submitInquiryAction(prevState: any, formData: FormData) {
+const inquirySchema = z.object({
+  name: z.string().min(2, "Name must be at least 2 characters").max(100),
+  company: z.string().min(2, "Company must be at least 2 characters").max(100),
+  email: z.string().email("Invalid email address").max(100),
+  phone: z.string().min(8, "Phone must be at least 8 characters").max(20),
+  requirement: z.string().min(5, "Requirement must be at least 5 characters").max(200),
+  message: z.string().max(2000).optional(),
+  cfTurnstileResponse: z.string().min(1, "Security verification required. Please try submitting again."),
+  botField: z.string().max(0).optional(), // Honeypot must be empty
+});
+
+type FormState = {
+  success: boolean;
+  error?: string;
+  details?: Record<string, string[]>;
+} | null;
+
+export async function submitInquiryAction(prevState: FormState, formData: FormData): Promise<FormState> {
   try {
-    const name = formData.get("name") as string;
-    const company = formData.get("company") as string;
-    const email = formData.get("email") as string;
-    const phone = formData.get("phone") as string;
-    const requirement = formData.get("requirement") as string;
-    const message = formData.get("message") as string;
+    // Parse using Zod with empty string fallbacks to prevent 'null' type errors
+    const rawData = {
+      name: formData.get("name") || "",
+      company: formData.get("company") || "",
+      email: formData.get("email") || "",
+      phone: formData.get("phone") || "",
+      requirement: formData.get("requirement") || "",
+      message: formData.get("message") || "",
+      cfTurnstileResponse: formData.get("cf-turnstile-response") || "",
+      botField: formData.get("bot_field") || "",
+    };
 
-    // Basic validation
-    if (!name || !company || !email || !phone || !requirement) {
-      return { success: false, error: "Please fill in all required fields." };
+    const logEntry = `
+=========================================
+RUNTIME INVESTIGATION TRACE:
+1. cfTurnstileResponse received in rawData: ${rawData.cfTurnstileResponse ? "YES" : "NO"} (Length: ${rawData.cfTurnstileResponse.length})
+2. Exact Token Value: ${rawData.cfTurnstileResponse.substring(0, 15)}...
+3. Field Name extracted: "cf-turnstile-response"
+=========================================
+`;
+    try { fs.appendFileSync("turnstile_debug.log", logEntry); } catch(e){}
+
+    const validatedFields = inquirySchema.safeParse(rawData);
+
+    if (!validatedFields.success) {
+      const fieldErrors = validatedFields.error.flatten().fieldErrors;
+      const firstError = Object.values(fieldErrors).flat()[0];
+
+      const logFail = `[FAIL] Zod rejected request before siteverify.\nZod Errors: ${JSON.stringify(fieldErrors)}\n`;
+      try { fs.appendFileSync("turnstile_debug.log", logFail); } catch(e){}
+
+      return { 
+        success: false, 
+        error: firstError || "Validation failed. Please check your inputs.",
+        details: fieldErrors 
+      };
     }
 
+    const data = validatedFields.data;
+
+    // Honeypot Check
+    if (data.botField && data.botField.length > 0) {
+      console.warn("Honeypot triggered.");
+      return { success: true }; // Silently drop
+    }
+
+    // Cloudflare Turnstile Verification
+    const turnstileSecret = process.env.TURNSTILE_SECRET_KEY;
+    
+    const logServer = `
+[CHECK] Attempting siteverify fetch.
+TURNSTILE_SECRET_KEY loaded: ${!!turnstileSecret}
+`;
+    try { fs.appendFileSync("turnstile_debug.log", logServer); } catch(e){}
+
+    if (turnstileSecret) {
+      try {
+        const verifyResponse = await fetch("https://challenges.cloudflare.com/turnstile/v0/siteverify", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/x-www-form-urlencoded",
+          },
+          body: `secret=${turnstileSecret}&response=${data.cfTurnstileResponse}`,
+        });
+
+        const verifyData = await verifyResponse.json();
+        
+        const logRes = `[RESPONSE] Cloudflare siteverify: ${JSON.stringify(verifyData)}\n`;
+        try { fs.appendFileSync("turnstile_debug.log", logRes); } catch(e){}
+
+        if (!verifyData.success) {
+          return { success: false, error: "Security verification failed or expired. Please try submitting again." };
+        }
+      } catch (error) {
+        console.error("Turnstile fetch error:", error);
+        // Fallback: If Cloudflare's API is down, we must not block legitimate leads. Fail open.
+        console.warn("Cloudflare API unreachable. Falling back to open submission.");
+      }
+    } else {
+      console.warn("TURNSTILE_SECRET_KEY is missing. Skipping Turnstile verification.");
+    }
+
+    // Email Sending
     const resendApiKey = process.env.RESEND_API_KEY;
 
     if (!resendApiKey) {
       console.warn("RESEND_API_KEY is not set. Mocking email submission in development.");
-      console.log("Mock Email Payload:", { name, company, email, phone, requirement, message });
+      console.log("Mock Email Payload:", data);
 
-      // Simulate network delay
       await new Promise(resolve => setTimeout(resolve, 1500));
       return { success: true };
     }
@@ -30,23 +119,21 @@ export async function submitInquiryAction(prevState: any, formData: FormData) {
     const resend = new Resend(resendApiKey);
 
     const { error } = await resend.emails.send({
-      // Resend requires a verified domain to send FROM. We use a default testing domain if unverified, 
-      // or the user's domain. Usually onboarding@resend.dev works for testing if delivering to the registered email.
-      from: "Ross Enterprises Web <onboarding@resend.dev>",
-      to: "jaygame21patel@gmail.com",
-      replyTo: email,
-      subject: `New Technical Brief: ${requirement} from ${company}`,
+      from: "Ross Enterprises <rossenterprises1996@rossenterprises.in>",
+      to: ["rossenterprises1996@gmail.com"],
+      replyTo: data.email,
+      subject: `New Technical Brief: ${data.requirement} from ${data.company}`,
       text: `
 You have received a new Technical Brief from the Ross Enterprises website.
 
-Representative Name: ${name}
-Organization: ${company}
-Direct Email: ${email}
-Contact Line: ${phone}
-Technical Requirement: ${requirement}
+Representative Name: ${data.name}
+Organization: ${data.company}
+Direct Email: ${data.email}
+Contact Line: ${data.phone}
+Technical Requirement: ${data.requirement}
 
 Project Brief / Specifications:
-${message || "No additional specifications provided."}
+${data.message || "No additional specifications provided."}
       `,
     });
 
