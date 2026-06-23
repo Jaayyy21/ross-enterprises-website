@@ -12,10 +12,10 @@ import { usePathname } from "next/navigation";
 const navLinks = [
   { href: "/", label: "Home" },
   { href: "/portfolio", label: "Portfolio" },
-  { href: "/about", label: "Expertise" },
-  { href: "/companies-we-represent", label: "Partners" },
+  { href: "/expertise", label: "Expertise" },
+  { href: "/partners", label: "Partners" },
   { href: "/customers", label: "Customers" },
-  { href: "/contact", label: "Connect" },
+  { href: "/connect", label: "Connect" },
 ];
 
 export function Header() {
@@ -85,7 +85,7 @@ export function Header() {
             </a>
           </div>
           <Button asChild size="sm" className="bg-accent text-white border-none rounded-none px-6 h-10 shadow-sm hover:bg-accent-dark whitespace-nowrap">
-            <Link href="/contact#inquiry" className="text-[10px] font-bold uppercase tracking-widest">Request Quote</Link>
+            <Link href="/connect#inquiry" className="text-[10px] font-bold uppercase tracking-widest">Request Quote</Link>
           </Button>
         </div>
 
@@ -124,7 +124,7 @@ export function Header() {
               <a href={`tel:${contact.primaryPhone}`} className="text-lg font-bold text-primary-dark tracking-widest">{contact.primaryPhone}</a>
             </div>
             <Button asChild className="w-full bg-accent hover:bg-accent-dark text-white h-14 rounded-none">
-              <Link href="/contact#inquiry" className="text-xs font-bold uppercase tracking-[0.2em]" onClick={() => setMobileOpen(false)}>Request Quote</Link>
+              <Link href="/connect#inquiry" className="text-xs font-bold uppercase tracking-[0.2em]" onClick={() => setMobileOpen(false)}>Request Quote</Link>
             </Button>
           </div>
         </nav>

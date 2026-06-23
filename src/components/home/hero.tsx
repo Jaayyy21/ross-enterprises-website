@@ -63,13 +63,13 @@ export function Hero() {
             className="mt-14 flex flex-col gap-4 sm:flex-row items-center"
           >
             <Button asChild size="lg" className="bg-accent text-white hover:bg-accent-dark border-none px-12 rounded-none shadow-md h-14">
-              <Link href="/contact#inquiry" className="uppercase tracking-[0.1em] text-xs font-bold">
+              <Link href="/connect#inquiry" className="uppercase tracking-[0.1em] text-xs font-bold">
                 Start an Inquiry
                 <ArrowRight className="h-4 w-4 ml-3" />
               </Link>
             </Button>
             <Button asChild variant="ghost" size="lg" className="text-white hover:text-accent transition-colors px-10 h-14 group rounded-none">
-              <Link href="/about" className="uppercase tracking-[0.1em] text-xs font-bold">
+              <Link href="/expertise" className="uppercase tracking-[0.1em] text-xs font-bold">
                 Our Heritage
                 <span className="block h-px w-0 bg-accent transition-all group-hover:w-full mt-1" />
               </Link>

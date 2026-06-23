@@ -27,6 +27,30 @@ const nextConfig: NextConfig = {
       { protocol: "https", hostname: "www.baumer.com" },
     ],
   },
+  async redirects() {
+    return [
+      {
+        source: '/about',
+        destination: '/expertise',
+        permanent: true,
+      },
+      {
+        source: '/contact',
+        destination: '/connect',
+        permanent: true,
+      },
+      {
+        source: '/companies-we-represent',
+        destination: '/partners',
+        permanent: true,
+      },
+      {
+        source: '/companies-we-represent/:slug*',
+        destination: '/partners/:slug*',
+        permanent: true,
+      },
+    ];
+  },
 };
 
 export default nextConfig;

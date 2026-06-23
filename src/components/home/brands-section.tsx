@@ -36,7 +36,7 @@ export function BrandsSection() {
               className="group relative flex flex-col items-center bg-white border border-border p-8 shadow-sm hover:shadow-md transition-shadow duration-300 rounded-none"
             >
               <Link 
-                href={`/companies-we-represent/${brand.id}`}
+                href={`/partners/${brand.id}`}
                 title={brand.name} 
                 className="relative h-20 w-full mb-6 group-hover:scale-105 transition-transform duration-500"
               >
@@ -50,7 +50,7 @@ export function BrandsSection() {
                 />
               </Link>
               <Link 
-                href={`/companies-we-represent/${brand.id}`}
+                href={`/partners/${brand.id}`}
                 className="text-[11px] font-bold uppercase tracking-[0.2em] text-primary group-hover:text-accent transition-colors duration-500 text-center"
               >
                 {brand.name}

@@ -40,7 +40,7 @@ export default async function BrandPage({ params }: BrandPageProps) {
       <section className="bg-primary py-16">
         <div className="mx-auto max-w-[1600px] px-4 sm:px-6 lg:px-12">
           <Link
-            href="/companies-we-represent"
+            href="/partners"
             className="inline-flex items-center gap-2 text-sm text-white/70 hover:text-white transition-colors mb-6"
           >
             <ArrowLeft className="h-4 w-4" />
@@ -100,7 +100,7 @@ export default async function BrandPage({ params }: BrandPageProps) {
                 application requirements.
               </p>
               <Button asChild className="mt-6">
-                <Link href="/contact">
+                <Link href="/connect">
                   Request a Quote
                   <ArrowRight className="h-4 w-4" />
                 </Link>

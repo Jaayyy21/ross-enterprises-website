@@ -6,6 +6,9 @@ export const metadata: Metadata = {
   title: "About Us",
   description:
     "Learn about Ross Enterprises — active in pneumatics since 1996, promoted by Mr. Nimesh Patel. Complete pneumatic, hydraulic, and instrumentation solutions.",
+  alternates: {
+    canonical: "https://rossenterprises.in/expertise",
+  },
 };
 
 export default function AboutPage() {

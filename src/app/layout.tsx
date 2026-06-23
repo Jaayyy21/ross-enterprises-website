@@ -44,6 +44,9 @@ export const metadata: Metadata = {
     index: true,
     follow: true,
   },
+  alternates: {
+    canonical: "https://www.rossenterprises.in",
+  },
 };
 
 export default function RootLayout({
@@ -51,9 +54,28 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": ["Organization", "LocalBusiness"],
+    "name": "Ross Enterprises",
+    "foundingDate": "1996",
+    "industry": "Industrial Automation & Engineering Solutions",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Vadodara",
+      "addressRegion": "Gujarat",
+      "addressCountry": "India"
+    },
+    "url": "https://rossenterprises.in"
+  };
+
   return (
     <html lang="en" className={`${inter.variable} h-full scroll-smooth`}>
       <body className="min-h-full flex flex-col font-sans antialiased">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
         <Header />
         <main className="flex-1">{children}</main>
         <Footer />

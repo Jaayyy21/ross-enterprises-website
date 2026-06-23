@@ -8,6 +8,9 @@ export const metadata: Metadata = {
   title: "Companies We Represent",
   description:
     "Ross Enterprises proudly represents world-leading manufacturers across pneumatics, hydraulics, instrumentation, automation, and industrial connectivity.",
+  alternates: {
+    canonical: "https://rossenterprises.in/partners",
+  },
 };
 
 export default function CompaniesPage() {
@@ -40,7 +43,7 @@ export default function CompaniesPage() {
             {brands.map((brand) => (
               <Link
                 key={brand.id}
-                href={`/companies-we-represent/${brand.id}`}
+                href={`/partners/${brand.id}`}
                 className="group relative grid lg:grid-cols-12 gap-10 lg:gap-20 p-10 lg:p-16 rounded-sm bg-white border border-taupe/20 shadow-md shadow-taupe/5 transition-all duration-300 hover:shadow-lg hover:shadow-taupe/20 hover:-translate-y-0.5 hover:border-accent/50 cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2"
               >
                 {/* Logo & Basic Info */}
@@ -109,13 +112,13 @@ export default function CompaniesPage() {
           </p>
           <div className="flex flex-col sm:flex-row gap-8 justify-center relative z-10">
             <a 
-              href="/contact" 
+              href="/connect" 
               className="px-12 py-5 bg-accent text-background text-[11px] font-bold uppercase tracking-[0.2em] rounded-sm hover:bg-white hover:text-primary-dark transition-all"
             >
               Contact Sales
             </a>
             <a 
-              href="/contact" 
+              href="/connect" 
               className="px-12 py-5 border border-white/20 text-white text-[11px] font-bold uppercase tracking-[0.2em] rounded-sm hover:bg-white/5 transition-all"
             >
               Technical Support

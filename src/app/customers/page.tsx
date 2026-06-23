@@ -16,13 +16,7 @@ export default function CustomersPage() {
       <section className="relative py-32 overflow-hidden bg-primary-dark">
         <div className="absolute inset-0 bg-gradient-to-tr from-accent/10 to-transparent" />
         <div className="mx-auto max-w-[1600px] px-4 sm:px-6 lg:px-12 relative z-10 text-center">
-          <div className="flex items-center justify-center gap-6 mb-10">
-            <div className="h-px w-12 bg-accent/30" />
-            <p className="text-[10px] font-bold uppercase tracking-[0.4em] text-accent">
-              Trusted Partnerships
-            </p>
-            <div className="h-px w-12 bg-accent/30" />
-          </div>
+
           <h1 className="text-5xl font-bold text-background sm:text-7xl tracking-tighter mb-10 leading-[0.95]">
             Companies We Serve
           </h1>
@@ -75,7 +69,7 @@ export default function CustomersPage() {
             Join the network of companies that trust Ross Enterprises for their critical automation and fluid power needs.
           </p>
           <a 
-            href="/contact" 
+            href="/connect" 
             className="inline-block px-12 py-5 bg-accent text-white text-[11px] font-bold uppercase tracking-[0.2em] rounded-none hover:bg-white hover:text-primary transition-all relative z-10 shadow-sm hover:shadow-md"
           >
             Start a Collaboration

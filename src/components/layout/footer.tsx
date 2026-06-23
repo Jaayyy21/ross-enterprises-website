@@ -30,8 +30,8 @@ export function Footer() {
             <h3 className="mb-10 text-[11px] font-bold uppercase tracking-[0.4em] text-accent/80">Navigation</h3>
             <ul className="space-y-5">
               {[
-                { href: "/about", label: "Our Heritage" },
-                { href: "/companies-we-represent", label: "Partners" },
+                { href: "/expertise", label: "Our Heritage" },
+                { href: "/partners", label: "Partners" },
                 { href: "/customers", label: "Our Customers" },
                 { href: "/portfolio", label: "Portfolio" },
 
@@ -50,8 +50,8 @@ export function Footer() {
             <h3 className="mb-10 text-[11px] font-bold uppercase tracking-[0.4em] text-accent/80">Support</h3>
             <ul className="space-y-5">
               {[
-                { href: "/contact#inquiry", label: "Request Quote" },
-                { href: "/contact", label: "Connect" },
+                { href: "/connect#inquiry", label: "Request Quote" },
+                { href: "/connect", label: "Connect" },
               ].map((link) => (
                 <li key={link.label}>
                   <Link href={link.href} className="text-sm text-background/40 transition-colors hover:text-background flex items-center gap-2 group">

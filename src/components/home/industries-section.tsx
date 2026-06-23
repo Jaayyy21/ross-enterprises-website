@@ -50,8 +50,8 @@ export function IndustriesSection() {
               <p className="text-background text-sm font-bold leading-relaxed mb-6 relative z-10">
                 Seeking a bespoke industrial solution for your facility?
               </p>
-              <Link href="/contact" className="inline-flex items-center text-accent font-bold uppercase tracking-[0.2em] text-[10px] hover:translate-x-2 transition-transform relative z-10">
-                Consult our engineers <ArrowRight className="ml-3 h-4 w-4" />
+              <Link href="/connect" className="inline-flex items-center text-accent font-bold uppercase tracking-[0.2em] text-[10px] hover:translate-x-2 transition-transform relative z-10">
+                Explore Solutions <ArrowRight className="ml-3 h-3 w-3" />
               </Link>
             </div>
           </div>

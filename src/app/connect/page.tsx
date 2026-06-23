@@ -7,6 +7,9 @@ export const metadata: Metadata = {
   title: "Contact Us",
   description:
     "Contact Ross Enterprises in Vadodara for pneumatic, hydraulic, and instrumentation product inquiries. +91-9427506160 / +91-9824018510.",
+  alternates: {
+    canonical: "https://rossenterprises.in/connect",
+  },
 };
 
 export default function ContactPage() {

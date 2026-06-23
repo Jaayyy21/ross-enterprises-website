@@ -114,33 +114,33 @@ export function InquiryForm() {
                 )}
                 <div className="grid gap-10 sm:grid-cols-2">
                   <div className="space-y-4">
-                    <label className="text-[10px] font-bold uppercase tracking-[0.3em] text-primary ml-1">Representative Name</label>
+                    <label htmlFor="name" className="text-[10px] font-bold uppercase tracking-[0.3em] text-primary ml-1">Representative Name</label>
                     <Input id="name" name="name" required placeholder="Full Name" className="h-14 border-border bg-surface rounded-none focus:bg-background focus:border-accent focus:ring-1 focus:ring-accent transition-all placeholder:text-muted" />
                   </div>
                   <div className="space-y-4">
-                    <label className="text-[10px] font-bold uppercase tracking-[0.3em] text-primary ml-1">Organization</label>
+                    <label htmlFor="company" className="text-[10px] font-bold uppercase tracking-[0.3em] text-primary ml-1">Organization</label>
                     <Input id="company" name="company" required placeholder="Company Name" className="h-14 border-border bg-surface rounded-none focus:bg-background focus:border-accent focus:ring-1 focus:ring-accent transition-all placeholder:text-muted" />
                   </div>
                 </div>
 
                 <div className="grid gap-10 sm:grid-cols-2">
                   <div className="space-y-4">
-                    <label className="text-[10px] font-bold uppercase tracking-[0.3em] text-primary ml-1">Direct Email</label>
+                    <label htmlFor="email" className="text-[10px] font-bold uppercase tracking-[0.3em] text-primary ml-1">Direct Email</label>
                     <Input id="email" name="email" type="email" required placeholder="email@organization.com" className="h-14 border-border bg-surface rounded-none focus:bg-background focus:border-accent focus:ring-1 focus:ring-accent transition-all placeholder:text-muted" />
                   </div>
                   <div className="space-y-4">
-                    <label className="text-[10px] font-bold uppercase tracking-[0.3em] text-primary ml-1">Contact Line</label>
+                    <label htmlFor="phone" className="text-[10px] font-bold uppercase tracking-[0.3em] text-primary ml-1">Contact Line</label>
                     <Input id="phone" name="phone" type="tel" required placeholder="+91 XXXX XXXXXX" className="h-14 border-border bg-surface rounded-none focus:bg-background focus:border-accent focus:ring-1 focus:ring-accent transition-all placeholder:text-muted" />
                   </div>
                 </div>
 
                 <div className="space-y-4">
-                  <label className="text-[10px] font-bold uppercase tracking-[0.3em] text-primary ml-1">Technical Requirement</label>
+                  <label htmlFor="requirement" className="text-[10px] font-bold uppercase tracking-[0.3em] text-primary ml-1">Technical Requirement</label>
                   <Input id="requirement" name="requirement" required placeholder="e.g. High-Pressure Hydraulic Systems" className="h-14 border-border bg-surface rounded-none focus:bg-background focus:border-accent focus:ring-1 focus:ring-accent transition-all placeholder:text-muted" />
                 </div>
 
                 <div className="space-y-4">
-                  <label className="text-[10px] font-bold uppercase tracking-[0.3em] text-primary ml-1">Project Brief / Specifications</label>
+                  <label htmlFor="message" className="text-[10px] font-bold uppercase tracking-[0.3em] text-primary ml-1">Project Brief / Specifications</label>
                   <Textarea id="message" name="message" placeholder="Include technical specifications, quantities, or specific brand preferences..." rows={4} className="border-border bg-surface rounded-none focus:bg-background focus:border-accent focus:ring-1 focus:ring-accent transition-all resize-none p-6 placeholder:text-muted" />
                 </div>
 
