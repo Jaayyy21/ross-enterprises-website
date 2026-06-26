@@ -37,7 +37,7 @@ export function Footer() {
 
               ].map((link) => (
                 <li key={link.href}>
-                  <Link href={link.href} className="text-sm text-background/40 transition-colors hover:text-background flex items-center gap-2 group">
+                  <Link href={link.href} prefetch={true} className="text-sm text-background/40 transition-colors hover:text-background flex items-center gap-2 group">
                     {link.label}
                     <ArrowUpRight className="h-3 w-3 opacity-0 -translate-y-1 translate-x-1 group-hover:opacity-100 group-hover:translate-y-0 group-hover:translate-x-0 transition-all" />
                   </Link>
@@ -54,7 +54,7 @@ export function Footer() {
                 { href: "/connect", label: "Connect" },
               ].map((link) => (
                 <li key={link.label}>
-                  <Link href={link.href} className="text-sm text-background/40 transition-colors hover:text-background flex items-center gap-2 group">
+                  <Link href={link.href} prefetch={true} className="text-sm text-background/40 transition-colors hover:text-background flex items-center gap-2 group">
                     {link.label}
                     <ArrowUpRight className="h-3 w-3 opacity-0 -translate-y-1 translate-x-1 group-hover:opacity-100 group-hover:translate-y-0 group-hover:translate-x-0 transition-all" />
                   </Link>
@@ -78,9 +78,9 @@ export function Footer() {
           </div>
 
           <div className="flex gap-12">
-            <Link href="/privacy-policy" className="text-[10px] font-bold uppercase tracking-[0.3em] text-background/20 hover:text-accent transition-colors">Privacy</Link>
-            <Link href="#" className="text-[10px] font-bold uppercase tracking-[0.3em] text-background/20 hover:text-accent transition-colors">Terms</Link>
-            <Link href="#" className="text-[10px] font-bold uppercase tracking-[0.3em] text-background/20 hover:text-accent transition-colors">Vadodara, India</Link>
+            <Link href="/privacy-policy" prefetch={true} className="text-[10px] font-bold uppercase tracking-[0.3em] text-background/20 hover:text-accent transition-colors">Privacy</Link>
+            <Link href="#" prefetch={true} className="text-[10px] font-bold uppercase tracking-[0.3em] text-background/20 hover:text-accent transition-colors">Terms</Link>
+            <Link href="#" prefetch={true} className="text-[10px] font-bold uppercase tracking-[0.3em] text-background/20 hover:text-accent transition-colors">Vadodara, India</Link>
           </div>
         </div>
       </div>

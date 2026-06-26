@@ -61,6 +61,7 @@ export function Header() {
               <Link
                 key={link.href}
                 href={link.href}
+                prefetch={true}
                 className={cn(
                   "px-4 py-2 text-[10px] font-bold uppercase tracking-[0.2em] transition-colors whitespace-nowrap relative group",
                   isActive ? "text-accent" : "text-primary hover:text-accent"
@@ -111,6 +112,7 @@ export function Header() {
             <Link
               key={link.href}
               href={link.href}
+              prefetch={true}
               className="py-4 text-sm font-bold text-foreground/80 uppercase tracking-[0.2em] border-b border-border hover:text-accent"
               onClick={() => setMobileOpen(false)}
             >

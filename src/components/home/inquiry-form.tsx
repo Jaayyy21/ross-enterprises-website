@@ -1,6 +1,7 @@
 "use client";
 
-import { useState, useTransition, useRef } from "react";
+import { useState, useTransition, useRef, useEffect } from "react";
+import Script from "next/script";
 import { motion } from "framer-motion";
 import { Send, ArrowRight, ShieldCheck, Headphones, AlertCircle } from "lucide-react";
 import { SectionHeader } from "@/components/ui/section-header";
@@ -8,13 +9,21 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { submitInquiryAction } from "@/app/actions/submit-inquiry";
-import { Turnstile, TurnstileInstance } from "@marsidev/react-turnstile";
+
+declare global {
+  interface Window {
+    turnstile?: any;
+    onloadTurnstileCallback?: () => void;
+  }
+}
 
 export function InquiryForm() {
   const [submitted, setSubmitted] = useState(false);
   const [error, setError] = useState("");
+  const [isTurnstileExecuting, setIsTurnstileExecuting] = useState(false);
   const [isPending, startTransition] = useTransition();
-  const turnstileRef = useRef<TurnstileInstance>(null);
+  const turnstileContainerRef = useRef<HTMLDivElement>(null);
+  const widgetIdRef = useRef<string | null>(null);
   const formDataRef = useRef<FormData | null>(null);
 
   function submitForm(formData: FormData) {
@@ -23,31 +32,104 @@ export function InquiryForm() {
       if (result?.success) {
         setSubmitted(true);
       } else {
-        setError(result?.error || "An unexpected error occurred.");
-        turnstileRef.current?.reset();
+        if (widgetIdRef.current && window.turnstile) {
+          window.turnstile.reset(widgetIdRef.current);
+        }
       }
     });
   }
 
+  const handleTurnstileSuccess = (token: string) => {
+    setIsTurnstileExecuting(false);
+    if (formDataRef.current) {
+      formDataRef.current.set("cf-turnstile-response", token);
+      submitForm(formDataRef.current);
+    }
+  };
+
+  const handleTurnstileError = (errorCode: string) => {
+    const errorFamily = Math.floor(Number(errorCode) / 1000);
+    if (errorFamily === 300 || errorFamily === 600) {
+      // let it retry
+    } else {
+      setError("Security verification failed. Please refresh the page and try again.");
+      setIsTurnstileExecuting(false);
+      if (widgetIdRef.current && window.turnstile) {
+        window.turnstile.reset(widgetIdRef.current);
+      }
+    }
+  };
+
+  const handleTurnstileTimeout = () => {
+    setError("Security verification timed out. Please try again.");
+    setIsTurnstileExecuting(false);
+    if (widgetIdRef.current && window.turnstile) {
+      window.turnstile.reset(widgetIdRef.current);
+    }
+  };
+
+  const handleTurnstileExpire = () => {
+    if (widgetIdRef.current && window.turnstile) {
+      window.turnstile.reset(widgetIdRef.current);
+    }
+  };
+
+  useEffect(() => {
+    if (submitted) return;
+
+    function initTurnstile() {
+      if (
+        window.turnstile &&
+        turnstileContainerRef.current &&
+        process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY &&
+        !widgetIdRef.current
+      ) {
+        widgetIdRef.current = window.turnstile.render(turnstileContainerRef.current, {
+          sitekey: process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY,
+          execution: "execute",
+          appearance: "execute",
+          callback: handleTurnstileSuccess,
+          "error-callback": handleTurnstileError,
+          "timeout-callback": handleTurnstileTimeout,
+          "expired-callback": handleTurnstileExpire,
+        });
+      }
+    }
+
+    if (window.turnstile) {
+      initTurnstile();
+    } else {
+      window.onloadTurnstileCallback = initTurnstile;
+    }
+
+    return () => {
+      if (widgetIdRef.current && window.turnstile) {
+        window.turnstile.remove(widgetIdRef.current);
+        widgetIdRef.current = null;
+      }
+      window.onloadTurnstileCallback = undefined;
+    };
+  }, [submitted]);
+
   function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
+    if (isTurnstileExecuting || isPending) return;
+    
     setError("");
     const formData = new FormData(e.currentTarget);
     
     if (process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY) {
-      // Trigger invisible turnstile execution. onSuccess will handle the actual submission.
       formDataRef.current = formData;
-      turnstileRef.current?.execute();
+      setIsTurnstileExecuting(true);
+      if (widgetIdRef.current && window.turnstile) {
+        window.turnstile.execute(widgetIdRef.current);
+      } else {
+        // If script hasn't loaded for some reason, fallback
+        submitForm(formData);
+      }
     } else {
       // Fallback if no sitekey is configured
       submitForm(formData);
-    }
-  }
-
-  function handleTurnstileSuccess(token: string) {
-    if (formDataRef.current) {
-      formDataRef.current.set("cf-turnstile-response", token);
-      submitForm(formDataRef.current);
     }
   }
 
@@ -171,19 +253,34 @@ export function InquiryForm() {
 
                 {/* Cloudflare Turnstile */}
                 {process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY && (
-                  <Turnstile 
-                    ref={turnstileRef}
-                    siteKey={process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY} 
-                    options={{ size: "invisible", execution: "execute" }}
-                    onSuccess={handleTurnstileSuccess}
-                    onError={() => setError("Security widget failed to initialize. Please try again.")}
-                  />
+                  <>
+                    <Script 
+                      src="https://challenges.cloudflare.com/turnstile/v0/api.js?onload=onloadTurnstileCallback&render=explicit" 
+                      strategy="lazyOnload" 
+                    />
+                    <div ref={turnstileContainerRef} id="cf-turnstile-widget" />
+                  </>
                 )}
 
-                <Button disabled={isPending} type="submit" size="lg" className="w-full h-16 bg-accent hover:bg-accent-dark text-white rounded-none shadow-md transition-all duration-500 active:scale-[0.98] uppercase tracking-[0.2em] text-[11px] font-bold">
-                  {isPending ? "Submitting..." : "Submit Technical Brief"}
-                  {!isPending && <ArrowRight className="h-4 w-4 ml-4" />}
-                </Button>
+                <div>
+                  <Button disabled={isPending || isTurnstileExecuting} type="submit" size="lg" className="w-full h-16 bg-accent hover:bg-accent-dark text-white rounded-none shadow-md transition-all duration-500 active:scale-[0.98] uppercase tracking-[0.2em] text-[11px] font-bold">
+                    {isPending 
+                      ? "Submitting..." 
+                      : isTurnstileExecuting 
+                        ? "Performing security verification..." 
+                        : "Submit Technical Brief"}
+                    {!isPending && !isTurnstileExecuting && <ArrowRight className="h-4 w-4 ml-4" />}
+                  </Button>
+                  {isPending && (
+                    <motion.p 
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      className="mt-4 text-center text-[11px] text-foreground/50 font-medium tracking-wide"
+                    >
+                      This may take a few seconds.
+                    </motion.p>
+                  )}
+                </div>
               </form>
             )}
           </motion.div>

@@ -22,7 +22,18 @@ type FormState = {
 } | null;
 
 export async function submitInquiryAction(prevState: FormState, formData: FormData): Promise<FormState> {
+  const tTotalStart = Date.now();
+  let tValidation = 0;
+  let tTurnstile = 0;
+  let tResend = 0;
+
+  const logTiming = () => {
+    const tTotal = Date.now() - tTotalStart;
+    console.log(`Validation: ${tValidation} ms\nTurnstile: ${tTurnstile} ms\nResend: ${tResend} ms\nTotal: ${tTotal} ms`);
+  };
+
   try {
+    const tValStart = Date.now();
     // Parse using Zod with empty string fallbacks to prevent 'null' type errors
     const rawData = {
       name: formData.get("name") || "",
@@ -36,15 +47,17 @@ export async function submitInquiryAction(prevState: FormState, formData: FormDa
     };
 
     const validatedFields = inquirySchema.safeParse(rawData);
+    tValidation = Date.now() - tValStart;
 
     if (!validatedFields.success) {
       const fieldErrors = validatedFields.error.flatten().fieldErrors;
       const firstError = Object.values(fieldErrors).flat()[0];
 
-      return { 
-        success: false, 
+      logTiming();
+      return {
+        success: false,
         error: firstError || "Validation failed. Please check your inputs.",
-        details: fieldErrors 
+        details: fieldErrors
       };
     }
 
@@ -53,6 +66,7 @@ export async function submitInquiryAction(prevState: FormState, formData: FormDa
     // Honeypot Check
     if (data.botField && data.botField.length > 0) {
       console.warn("Honeypot triggered.");
+      logTiming();
       return { success: true }; // Silently drop
     }
 
@@ -60,6 +74,7 @@ export async function submitInquiryAction(prevState: FormState, formData: FormDa
     const turnstileSecret = process.env.TURNSTILE_SECRET_KEY;
 
     if (turnstileSecret) {
+      const tTurnStart = Date.now();
       try {
         const verifyResponse = await fetch("https://challenges.cloudflare.com/turnstile/v0/siteverify", {
           method: "POST",
@@ -70,11 +85,14 @@ export async function submitInquiryAction(prevState: FormState, formData: FormDa
         });
 
         const verifyData = await verifyResponse.json();
+        tTurnstile = Date.now() - tTurnStart;
 
         if (!verifyData.success) {
+          logTiming();
           return { success: false, error: "Security verification failed or expired. Please try submitting again." };
         }
       } catch (error) {
+        tTurnstile = Date.now() - tTurnStart;
         console.error("Turnstile fetch error:", error);
         // Fallback: If Cloudflare's API is down, we must not block legitimate leads. Fail open.
         console.warn("Cloudflare API unreachable. Falling back to open submission.");
@@ -90,12 +108,17 @@ export async function submitInquiryAction(prevState: FormState, formData: FormDa
       console.warn("RESEND_API_KEY is not set. Mocking email submission in development.");
       console.log("Mock Email Payload:", data);
 
+      const tResStart = Date.now();
       await new Promise(resolve => setTimeout(resolve, 1500));
+      tResend = Date.now() - tResStart;
+
+      logTiming();
       return { success: true };
     }
 
     const resend = new Resend(resendApiKey);
 
+    const tResStart = Date.now();
     const { error } = await resend.emails.send({
       from: "Ross Enterprises <rossenterprises1996@rossenterprises.in>",
       to: ["rossenterprises1996@gmail.com"],
@@ -114,15 +137,19 @@ Project Brief / Specifications:
 ${data.message || "No additional specifications provided."}
       `,
     });
+    tResend = Date.now() - tResStart;
 
     if (error) {
       console.error("Resend API Error:", error);
+      logTiming();
       return { success: false, error: "Failed to send the inquiry. Please try again later." };
     }
 
+    logTiming();
     return { success: true };
   } catch (error) {
     console.error("Server Action Error:", error);
+    logTiming();
     return { success: false, error: "An unexpected error occurred." };
   }
 }
