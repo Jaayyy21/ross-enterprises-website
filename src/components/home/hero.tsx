@@ -33,7 +33,7 @@ export function Hero() {
             className="flex items-center gap-4 sm:gap-6 mb-12"
           >
             <div className="h-px w-12 sm:w-20 bg-accent" />
-            <span className="text-xs sm:text-lg font-bold uppercase tracking-[0.4em] text-accent">
+            <span className="text-sm sm:text-2xl font-bold uppercase tracking-[0.4em] text-accent">
               Ross Enterprises — Est. {company.foundedYear}
             </span>
           </motion.div>
@@ -42,7 +42,7 @@ export function Hero() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.1 }}
-            className="text-6xl font-bold leading-[0.95] tracking-tighter text-white sm:text-7xl lg:text-8xl"
+            className="text-5xl font-bold leading-[0.95] tracking-tighter text-white sm:text-6xl lg:text-7xl"
           >
             {company.tagline.split('Since')[0]}
           </motion.h1>
