@@ -1,165 +1,307 @@
 <div align="center">
-  <h1>Ross Enterprises Corporate Website</h1>
-  <p><em>Industrial Automation & Engineering Solutions (Est. 1996)</em></p>
-  
-  [![Next.js](https://img.shields.io/badge/Next.js-16.2-black?style=flat-square&logo=next.js)](https://nextjs.org/)
-  [![TypeScript](https://img.shields.io/badge/TypeScript-5.0-blue?style=flat-square&logo=typescript)](https://www.typescriptlang.org/)
-  [![Tailwind CSS](https://img.shields.io/badge/Tailwind-3.4-38B2AC?style=flat-square&logo=tailwind-css)](https://tailwindcss.com/)
-  [![Framer Motion](https://img.shields.io/badge/Framer_Motion-11.0-0055FF?style=flat-square&logo=framer)](https://www.framer.com/motion/)
-  [![Cloudflare Turnstile](https://img.shields.io/badge/Security-Cloudflare_Turnstile-F38020?style=flat-square&logo=cloudflare)](https://www.cloudflare.com/products/turnstile/)
+
+# Ross Enterprises Corporate Website
+
+### Industrial Automation & Fluid Control Solutions (Est. 1996)
+
+[![Next.js](https://img.shields.io/badge/Next.js-16.2-black?style=flat-square&logo=next.js)](https://nextjs.org/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5.0-blue?style=flat-square&logo=typescript)](https://www.typescriptlang.org/)
+[![Tailwind CSS](https://img.shields.io/badge/Tailwind-3.4-38B2AC?style=flat-square&logo=tailwind-css)](https://tailwindcss.com/)
+[![Framer Motion](https://img.shields.io/badge/Framer_Motion-11.0-0055FF?style=flat-square&logo=framer)](https://www.framer.com/motion/)
+[![Cloudflare Turnstile](https://img.shields.io/badge/Security-Cloudflare_Turnstile-F38020?style=flat-square&logo=cloudflare)](https://www.cloudflare.com/products/turnstile/)
+
 </div>
-
-<br />
-
-> **Note:** This repository houses the production source code for the official Ross Enterprises website. It serves as a digital storefront, credibility builder, and secure technical inquiry portal for enterprise customers.
 
 ---
 
-## 📖 Project Overview
+# 🌐 Live Website
 
-The Ross Enterprises website has been completely architected from the ground up to reflect the scale and precision of a leading industrial solutions provider. Moving away from legacy tech, this application is built on the **Next.js App Router**, leveraging modern web paradigms like React Server Components (RSC), strict TypeScript typings, and advanced server actions.
+**Production Website**
 
-## 🏢 Business Context
+https://rossenterprises.in
 
-Based in Vadodara, Gujarat, India, **Ross Enterprises** has been a premier authorized distributor of pneumatic, hydraulic, and automation components since 1996. They represent world-class brands such as Parker Hannifin and Legris. 
+**GitHub Repository**
 
-The primary business objective of this web platform is to:
-1. Act as a high-trust portfolio showcasing major industrial clients.
-2. Provide a seamless, premium user experience for prospective partners and customers.
-3. Facilitate secure, spam-free technical inquiries directly to the engineering team.
-4. Rank highly on regional search engines for specialized fluid power components.
+https://github.com/Jaayyy21/ross-enterprises-website
 
-## ⚡ Technology Stack
+---
 
-### Core Architecture
-* **Framework:** Next.js 16 (App Router)
-* **Language:** TypeScript (Strict Mode)
-* **Styling:** Tailwind CSS + Vanilla CSS Modules
-* **Animations:** Framer Motion (Micro-interactions, scroll reveals)
-* **Icons:** Lucide React
+# 📸 Website Preview
 
-### Backend & Integrations
-* **API / Handlers:** Next.js Server Actions
-* **Email Provider:** Resend SDK
-* **Validation:** Zod (Type-safe schema validation)
-* **Security:** Cloudflare Invisible Turnstile (Bot mitigation)
+## Homepage
 
-## ✨ Key Features
+![Homepage](public/assets/github-readme/homepage.png)
 
-* **Server-Side Rendered (SSR) & Statically Generated:** Maximized performance and SEO indexing.
-* **Premium UI/UX:** Dark mode aesthetics, glassmorphism, dynamic scroll animations, and fluid typography.
-* **Responsive Architecture:** Pixel-perfect rendering across all viewports (Mobile, Tablet, Desktop).
-* **Server-Action Inquiry Form:** Robust, JavaScript-independent fallback form handling.
-* **Zero-Spam Architecture:** Invisible captchas and honeypots ensure only legitimate engineering requests reach the inbox.
+---
 
-## 🛡️ Security Architecture
+## Industries We Serve
 
-The application implements a defense-in-depth approach to form submissions and API routes, specifically engineered for a shared hosting environment (cPanel/Node.js):
+![Industries](public/assets/github-readme/industries.png)
 
-* **Cloudflare Invisible Turnstile:** Replaces legacy reCAPTCHA. Validates user sessions invisibly without hindering the UX. Strict domain matching ensures tokens cannot be spoofed.
-* **Zod Validation:** All incoming payloads are strictly verified against a `z.object` schema on the server *before* processing.
-* **Honeypot Protection:** Hidden algorithmic trap fields intercept automated headless bots navigating the DOM.
-* **Security Headers:** Strict transport security, X-Frame-Options, and Content-Security-Policies enforced at the Next.js routing layer.
-* **Resend Server Actions:** Email relay operations run exclusively in secure server environments, completely hiding API keys from the client network layer.
-* **Graceful Failures:** Fail-open implementation logic ensures business-critical inquiries are not lost during network anomalies.
+---
 
-## 📈 SEO & Performance
+## Product Portfolio
 
-* **Semantic HTML5:** Strict adherence to semantic DOM structures (`<article>`, `<section>`, `<nav>`).
-* **Metadata API:** Dynamic `robots`, `sitemap.xml`, and OpenGraph tag generation.
-* **Image Optimization:** Utilization of `next/image` with WebP format enforcement and lazy loading.
-* **Font Optimization:** `next/font` integration to eliminate layout shifts (CLS) and blocking render delays.
+![Products](public/assets/github-readme/products.png)
 
-## 📂 Project Structure
+---
+
+## Customers
+
+![Customers](public/assets/github-readme/customers.png)
+
+---
+
+## Technical Inquiry Form
+
+![Inquiry Form](public/assets/github-readme/form.png)
+
+---
+
+# 📖 Overview
+
+Ross Enterprises is an established industrial automation company headquartered in Vadodara, Gujarat, serving customers across India since **1996**.
+
+This project modernizes the company's online presence with a fast, secure, responsive website built using modern web technologies. Beyond acting as a corporate website, it functions as a digital sales platform, trust builder, and secure technical inquiry portal.
+
+The project was built with a strong focus on:
+
+- Enterprise-grade UI/UX
+- Performance
+- Security
+- Accessibility
+- Responsive design
+- SEO
+- Production deployment
+
+---
+
+# 🏢 Business Objectives
+
+The website was designed to help Ross Enterprises:
+
+- Showcase decades of engineering expertise
+- Present an extensive industrial product portfolio
+- Display partnerships with globally recognized manufacturers
+- Build trust through customer showcases
+- Generate qualified technical inquiries
+- Deliver a premium experience across all devices
+
+---
+
+# 🚀 Highlights
+
+- Production website for a real industrial automation company
+- Fully responsive across desktop, tablet, and mobile
+- Modern enterprise UI with smooth animations
+- Secure inquiry form protected by Cloudflare Turnstile
+- Server-side email delivery using Resend
+- Built with Next.js App Router and TypeScript
+- Deployed on Vercel with a custom production domain
+
+---
+
+# ⚡ Technology Stack
+
+## Frontend
+
+- Next.js 16 (App Router)
+- React
+- TypeScript
+- Tailwind CSS
+- Framer Motion
+- Lucide React
+
+## Backend
+
+- Next.js Server Actions
+- Resend Email API
+
+## Security
+
+- Cloudflare Invisible Turnstile
+- Zod Validation
+- Honeypot Protection
+- Security Headers
+
+## Deployment
+
+- Vercel
+- Custom Domain
+- HTTPS
+
+---
+
+# ✨ Features
+
+- Responsive enterprise website
+- Animated landing page
+- Product portfolio
+- Industry showcase
+- Customer showcase
+- Partner showcase
+- Secure technical inquiry form
+- Production-ready deployment
+- SEO optimized
+- Accessibility focused
+- Image optimization
+- Dynamic metadata
+- Sitemap generation
+- Robots configuration
+
+---
+
+# 🔒 Security
+
+The inquiry system follows a defense-in-depth approach.
+
+Implemented protections include:
+
+- Cloudflare Invisible Turnstile
+- Server-side Turnstile verification
+- Zod schema validation
+- Honeypot spam detection
+- Secure Server Actions
+- Environment variable protection
+- Secure email delivery with Resend
+- Graceful error handling
+
+---
+
+# ⚙️ Engineering Challenges
+
+Some of the most significant engineering work included:
+
+- Migrating to Next.js App Router
+- Production deployment on Vercel
+- DNS migration to custom domain
+- Cloudflare Turnstile integration
+- Secure server-side form handling
+- Responsive UI optimization
+- Server Actions implementation
+- Email delivery architecture
+- SEO optimization
+- Performance optimization
+
+---
+
+# 📈 SEO & Performance
+
+The project incorporates modern SEO practices including:
+
+- Semantic HTML
+- Metadata API
+- Open Graph support
+- Robots.txt generation
+- Dynamic sitemap
+- Optimized images
+- Font optimization
+- Lazy loading
+- Fast page rendering
+
+---
+
+# 📂 Project Structure
 
 ```text
 ROSS/
 ├── src/
-│   ├── app/                    # Next.js App Router (Pages & Layouts)
-│   │   ├── actions/            # Secure Server Actions (e.g. submit-inquiry.ts)
-│   │   ├── categories/         # Product Category pages
-│   │   ├── connect/            # Contact & Inquiry portal
-│   │   ├── customers/          # Client trust portfolio
-│   │   ├── expertise/          # Company history & specialization
-│   │   ├── partners/           # Authorized distributorships
-│   │   ├── portfolio/          # Project gallery
-│   │   ├── privacy-policy/     # Legal & Compliance pages
-│   │   └── products/           # Detailed product specifications
-│   ├── components/             # Reusable UI Architecture
-│   │   ├── home/               # Landing page specific blocks
-│   │   ├── layout/             # Global headers, footers, navigation
-│   │   └── ui/                 # Atomic design components (Buttons, Inputs)
-│   └── lib/                    # Utilities, constants, and helper functions
-├── public/                     # Static assets (images, documents)
-├── next.config.ts              # Next.js bundler configuration
-└── tailwind.config.ts          # Design system tokens and plugins
+│   ├── app/
+│   ├── components/
+│   ├── lib/
+│   └── styles/
+│
+├── public/
+│   ├── assets/
+│   └── images/
+│
+├── next.config.ts
+├── tailwind.config.ts
+├── package.json
+└── README.md
 ```
 
-## 💻 Local Development
+---
 
-1. **Clone the repository**
-   ```bash
-   git clone https://github.com/Jaayyy21/ross-enterprises-website.git
-   cd ross-enterprises-website
-   ```
+# 💻 Local Development
 
-2. **Install dependencies**
-   ```bash
-   npm install
-   ```
+Clone the repository
 
-3. **Configure Environment Variables**
-   Create a `.env.local` file in the root directory (refer to the Environment Variables section below).
+```bash
+git clone https://github.com/Jaayyy21/ross-enterprises-website.git
+```
 
-4. **Start the development server**
-   ```bash
-   npm run dev
-   ```
-   *The application will be available at `http://localhost:3000`.*
+Install dependencies
 
-## 🔐 Environment Variables
+```bash
+npm install
+```
 
-Create a `.env.local` file at the project root. The application will not compile or process inquiries without these:
+Start development server
+
+```bash
+npm run dev
+```
+
+Visit
+
+```
+http://localhost:3000
+```
+
+---
+
+# 🔐 Environment Variables
+
+Create a `.env.local` file.
 
 ```env
-# Resend API key for routing inquiry emails
-RESEND_API_KEY=re_your_api_key_here
+RESEND_API_KEY=
 
-# Cloudflare Turnstile Configuration (Mandatory for form submission)
-# Use '1x00000000000000000000AA' for local bypassing/testing
-NEXT_PUBLIC_TURNSTILE_SITE_KEY=your_cloudflare_site_key
+NEXT_PUBLIC_TURNSTILE_SITE_KEY=
 
-# Turnstile Secret Key for Server-Side verification
-# Use '1x0000000000000000000000000000000AA' for local bypassing/testing
-TURNSTILE_SECRET_KEY=your_cloudflare_secret_key
+TURNSTILE_SECRET_KEY=
 ```
 
-## 🚀 Deployment
+---
 
-This application is configured for a standard Node.js server environment (e.g., cPanel with Phusion Passenger) but is fully compatible with Vercel or AWS Amplify.
+# 🚀 Deployment
 
-1. **Build the production bundle:**
-   ```bash
-   npm run build
-   ```
-2. **Start the production server:**
-   ```bash
-   npm run start
-   ```
+Production deployment uses:
 
-## 🎨 Design System
+- Vercel
+- Custom Domain
+- HTTPS
+- Cloudflare Turnstile
+- Resend Email API
 
-The application utilizes a custom tailored design system built on top of Tailwind CSS. We avoid generic defaults in favor of:
-* **Typography:** Premium Google Fonts configured via `next/font`.
-* **Color Palette:** Deep, industrial "primary-dark" backgrounds accented by vibrant, high-contrast action colors.
-* **Micro-interactions:** Interactive hover states, subtle `translate-y` shifts, and opacity fades that reward user engagement without compromising performance.
+Deploy
 
-## 🛣️ Future Enhancements
+```bash
+npm run build
 
-* [ ] Integration of a headless CMS (Sanity/Contentful) for dynamic product catalog updates.
-* [ ] Advanced analytics and heatmapping integration.
-* [ ] Client portal for direct RFQ (Request for Quotation) tracking.
+npm run start
+```
 
-## 🤝 Credits
+---
 
-Architected and engineered by the **Ross Enterprises Technical Team**.
+# 🎯 Future Improvements
+
+- Headless CMS integration
+- Analytics dashboard
+- RFQ tracking portal
+- Product search
+- Multi-language support
+- Admin dashboard
+
+---
+
+# 👨‍💻 Developer
+
+Designed and developed by **Jay Patel**.
+
+This project was completed as a freelance engagement for **Ross Enterprises**, delivering a modern, secure, production-ready website for a real industrial automation business.
+
+---
+
+## ⭐ If you found this project interesting, consider giving it a star!
