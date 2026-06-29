@@ -33,9 +33,11 @@ export function Hero() {
             className="flex items-center gap-4 sm:gap-6 mb-12"
           >
             <div className="h-px w-12 sm:w-20 bg-accent" />
-            <span className="text-sm sm:text-2xl font-bold uppercase tracking-[0.4em] text-accent">
-              Ross Enterprises — Est. {company.foundedYear}
-            </span>
+            <div className="inline-flex bg-white/90 backdrop-blur-md border border-white/20 shadow-lg rounded-xl px-5 py-2.5 sm:px-6 sm:py-3 w-fit">
+              <span className="text-sm sm:text-2xl font-bold uppercase tracking-[0.4em] text-accent">
+                Ross Enterprises — Est. {company.foundedYear}
+              </span>
+            </div>
           </motion.div>
 
           <motion.h1
